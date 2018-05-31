@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 public class Produto {
 	
 	private String nome;
-	private BigDecimal valor;
+	private BigDecimal custo;
+	private BigDecimal venda;
 	private String descricao;
 	private BufferedImage foto;
 	
@@ -16,11 +17,17 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public BigDecimal getValor() {
-		return valor;
+	public BigDecimal getCusto() {
+		return custo;
 	}
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
+	public void setCusto(BigDecimal custo) {
+		this.custo = custo;
+	}
+	public BigDecimal getVenda() {
+		return venda;
+	}
+	public void setVenda(BigDecimal venda) {
+		this.venda = venda;
 	}
 	public String getDescricao() {
 		return descricao;
@@ -34,6 +41,8 @@ public class Produto {
 	public void setFoto(BufferedImage foto) {
 		this.foto = foto;
 	}
+	
+
 	
 	
 
