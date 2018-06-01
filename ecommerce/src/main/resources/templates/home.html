@@ -1,58 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/LayoutPadrao}">
+<html layout:decorate="~{layout}">
 <head>
-<title>E-Commerce Lite</title>
 <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet" />
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet"
-	href="/materialize/css/materialize.min.css" media="screen,projection" />
-<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
-	media="screen,projection" />
-<link href="https://fonts.googleapis.com/css?family=Oswald"
-	rel="stylesheet" />
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 </head>
 <body>
 
-
-	<header class="cabecalho">
-		<div class="logo">
-			<a href="/home"> <img
-				src="/materialize/img/spring-boot-logo.png" alt="Logo" />
-			</a>
-		</div>
-		<div class="menu">
-			<ul>
-				<li><a href="/home">Início</a></li>
-				<li><a href="/cadastro">Cadastro</a></li>
-				<li><a href="/lista">Lista</a></li>
-			</ul>
-		</div>
-
-		<button class="menu-toggle">
-			<i class="large material-icons">add_shopping_cart</i>
-		</button>
-		<div class="carrinho">
-			<i class="large material-icons">add_shopping_cart</i>
-			<div class="carrinho-preco">
-				<span class="preco-de">R$80,00</span> <span class="preco-por">R$50,00</span>
-			</div>
-		</div>
-	</header>
-	<section class="conteudo">
+	<section class="conteudo" layout:fragment="corpo">
 		<h3>E-COMMERCE LITE:</h3>
 		<p>Criação de um site que apresente uma listagem de produtos, com
 			foto (50px X 50px), Nome (50 caracteres) preço de venda e descritivo
@@ -63,24 +16,22 @@
 			produto, bem como o total da compra devem ser recalculados.</p>
 		<p>O preço de venda (PrecoVendaProdutoX) dos produtos deverá ser
 			calculado pelo sistema de acordo com as seguintes regras:</p>
-		<li>Cada produto deverá ter associado a ele o seu custo de compra (CustoCompra), caso o custo de compra não for informado o produto não deverá aparecer na listagem;</li>
-		<li>O usuário deverá informar um valor para as despesas totais (DespesasTotais) da loja e estas despesas deverão ser rateadas igualmente entre os produtos (RateioDespesas), independentemente do valor destes. Caso o valor das despesas não seja informado o valor R$ 400,00 deverá ser assumido como padrão;</li>
-		<li>Opcionalmente o usuário poderá informa um percentual para margem de lucro (%MargemLucro).Este valor, se existir, deverá ser aplicado para encontrar o preço de venda de cada produto;</li>
-		<li>Todos os valores devem ser superiores a zero, exceto a margem de lucro que poderá ser maior ou igual a zero.</li>
-		
+		<li>Cada produto deverá ter associado a ele o seu custo de compra
+			(CustoCompra), caso o custo de compra não for informado o produto não
+			deverá aparecer na listagem;</li>
+		<li>O usuário deverá informar um valor para as despesas totais
+			(DespesasTotais) da loja e estas despesas deverão ser rateadas
+			igualmente entre os produtos (RateioDespesas), independentemente do
+			valor destes. Caso o valor das despesas não seja informado o valor R$
+			400,00 deverá ser assumido como padrão;</li>
+		<li>Opcionalmente o usuário poderá informa um percentual para
+			margem de lucro (%MargemLucro).Este valor, se existir, deverá ser
+			aplicado para encontrar o preço de venda de cada produto;</li>
+		<li>Todos os valores devem ser superiores a zero, exceto a margem
+			de lucro que poderá ser maior ou igual a zero.</li>
+
 	</section>
-	<footer class="layout-footer">
-		<div class="container">
-			<span class="footer-copy">&copy; 2018 EduardoMoritz. Todos os
-				direitos reservados.</span>
-		</div>
-	</footer>
 
 
-
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="/materialize/js/my.js"></script>
-	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
-	
 </body>
 </html>

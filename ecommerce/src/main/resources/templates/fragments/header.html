@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<header class="cabecalho" th:fragment="cabecalho">
+		<div class="logo">
+			<a href="/home"> <img
+				src="/materialize/img/spring-boot-logo.png" alt="Logo" />
+			</a>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="/home">Início</a></li>
+				<li><a href="/cadastro">Cadastro</a></li>
+				<li><a href="/lista">Lista</a></li>
+			</ul>
+		</div>
+
+		<button class="menu-toggle">
+			<i class="large material-icons">add_shopping_cart</i>
+		</button>
+		<div class="carrinho">
+			<i class="large material-icons">add_shopping_cart</i>
+			<div class="carrinho-preco">
+				<span class="preco-de">R$80,00</span> <span class="preco-por">R$50,00</span>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

@@ -1,56 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/LayoutPadrao}">
+<html layout:decorate="~{layout}">
 <head>
-<title>E-Commerce Lite</title>
 <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet" />
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet"
-	href="/materialize/css/materialize.min.css" media="screen,projection" />
-<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
-	media="screen,projection" />
-<link href="https://fonts.googleapis.com/css?family=Oswald"
-	rel="stylesheet" />
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 </head>
 <body>
-
-
-	<header class="cabecalho">
-		<div class="logo">
-			<a href="/home"> <img src="/materialize/img/spring-boot-logo.png"
-				alt="Logo" />
-			</a>
-		</div>
-		<div class="menu">
-			<ul>
-				<li><a href="/home">Início</a></li>
-				<li><a href="/cadastro">Cadastro</a></li>
-				<li><a href="/lista">Lista</a></li>
-			</ul>
-		</div>
-
-		<div class="carrinho">
-			<i class="large material-icons">add_shopping_cart</i>
-			<div class="carrinho-preco">
-				<span class="preco-de">R$80,00</span> <span class="preco-por">R$50,00</span>
-			</div>
-		</div>
-	</header>
-
-	<div class="conteudo">
+	<div class="conteudo" layout:fragment="corpo">
 		<table id="myTable" class="table">
 			<thead>
 				<tr>
@@ -74,16 +28,6 @@
 			</tbody>
 		</table>
 	</div>
-	<footer class="layout-footer">
-		<div class="container">
-			<span class="footer-copy">&copy; 2018 EduardoMoritz. Todos os
-				direitos reservados.</span>
-		</div>
-	</footer>
-
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="/materialize/js/my.js"></script>
-	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 
 </body>
 </html>
