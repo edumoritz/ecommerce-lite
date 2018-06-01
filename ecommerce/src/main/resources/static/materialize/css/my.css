@@ -1,0 +1,152 @@
+body {
+	margin: 0;
+	font-family: 'Oswald', sans-serif;
+	background-color: lightgray !important;
+}
+
+.cabecalho {
+	background: #333;
+	color: #fff;
+	border-bottom: solid 5px #4faddb;
+	height: 100px;
+}
+
+.logo img {
+	height: 50px;
+	width: 100px;
+}
+
+.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.cabecalho a {
+	text-decoration: none;
+	color: #eee;
+	font-size: 1.3em;
+	padding: 10px 15px;
+}
+
+.menu a:hover, .menu a.selected {
+	background-color: #4faddb;
+	color: #000;
+	padding: 20px 30px;
+	border-radius: 5px;
+}
+
+.cabecalho .botao {
+	border-radius: 5px;
+	margin-right: 60px;
+}
+
+.destaque {
+	background: #f50a31;
+	color: #fff;
+}
+
+.cabecalho {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.menu {
+	flex-grow: 10;
+	background: #333;
+}
+
+.menu ul {
+	display: flex;
+}
+
+.menu li {
+	margin: 0px 10px;
+}
+
+.destaque {
+	color: #fff;
+	background: #f50a31;
+}
+/*Card*/
+.carrinho {
+	/* float: left; */
+	font-family: Verdana, sans-serif;
+	border: solid 1px #CCC;
+	margin: 30px 20px 0px 0px;
+	padding: 5px 5px;
+	position: relative;
+	background-color: #9ccc65;
+	box-shadow: 0 4PX 20PX 0 rgba(0, 0, 0, 0.3);
+}
+
+.carrinho-preco {
+	float: left;
+	margin-top: 40px;
+	padding: 10px;
+}
+
+.preco-de {
+	color: firebrick;
+	text-decoration: line-through;
+}
+
+.preco-por {
+	font-size: 1.4em;
+	color: green;
+	font-weight: bold;
+}
+
+.menu-toggle {
+	color: #eee;
+	background-color: #555;
+	border: solid 1px #777;
+	border-radius: 5px;
+	margin: 20px 20px;
+	display: none;
+}
+/*CONTEUDO*/
+.conteudo {	
+	padding-top: 20px;
+	margin-left: 20px;	
+}
+.cadastro {
+	margin-left: 30px;
+	padding-top: 0;
+}
+.conteudo button {
+	float: inherit;
+}
+.layout-content {
+    width: 100%;
+    padding-top: 0px;
+}
+/*FOOTER*/
+.layout-footer{
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #777;
+    color: white;
+    text-align: center;
+}
+.table{
+  margin-bottom: 120px;
+}
+
+/**
+Media Query
+**/
+@media ( max-width : 778px) {
+	.carrinho {
+		display: none;
+	}
+}
+
+@media ( max-width : 778px) {
+	.menu-toggle {
+		display: block;
+	}
+}

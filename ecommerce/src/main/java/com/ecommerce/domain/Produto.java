@@ -1,15 +1,25 @@
-package com.ecommerce.model;
+package com.ecommerce.domain;
 
-import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
 
-public class Produto {
-	
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "PRODUTOS")
+public class Produto extends AbstractEntity<Long> {
+
+	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
+	@Column(name = "custo")
 	private BigDecimal custo;
+	@Column(name = "venda")
 	private BigDecimal venda;
+	@Column(name = "descricao", length = 200)
 	private String descricao;
-	private BufferedImage foto;
+	@ManyToOne
+	@JoinColumn(name = "id_carrinho_fk")
+	private Carrinho carrinho;
 	
 	public String getNome() {
 		return nome;
@@ -35,13 +45,12 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public BufferedImage getFoto() {
-		return foto;
+	public Carrinho getCarrinho() {
+		return carrinho;
 	}
-	public void setFoto(BufferedImage foto) {
-		this.foto = foto;
+	public void setCarrinho(Carrinho carrinho) {
+		this.carrinho = carrinho;
 	}
-	
 
 	
 	
