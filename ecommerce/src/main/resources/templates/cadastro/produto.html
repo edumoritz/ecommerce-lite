@@ -4,38 +4,45 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-	<div class="conteudo cadastro" layout:fragment="corpo">
-	
+	<div class="cadastro" layout:fragment="corpo">
+
 		<div class="row">
 			<h3>Cadastro de Produto:</h3>
-			<form class="col s12" 
-				th:action="@{/cadastros/salvar}" 
-				th:object="${produto}"
-				method="post">
+			<form class="col s12 container" th:action="@{/cadastros/salvar}"
+				th:object="${produto}" method="post">
+
 				<div class="row">
-					<div class="input-field col s6">
-						<input id="last_name" type="text" class="validate" th:field="*{nome}"> 
-						<label for="Nome">Nome</label>
+				
+					<div class="col s12">
+						<div class="input-field inline">
+							<input id="email_inline" type="text" class="validate"
+								th:field="*{nome}"> <label for="nome">Nome</label>
+						</div>
+					</div>
+					<div class="col s12">
+						<div class="input-field inline">
+							<input id="email_inline" type="text" class="validate"> <label
+								for="despesas">Despesas</label>
+						</div>
+						<div class="input-field inline">
+							<input id="email_inline" type="text" class="validate"> <label
+								for="custo">Custo</label>
+						</div>
+
+					</div>
+
+					<div class="input-field col s12">
+						<input id="textarea1" type="text" class="materialize-textarea"
+							th:field="*{descricao}"> <label for="descricao">Descrição</label>
 					</div>
 				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<input id="last_name" class="validate" type="text" th:field="*{custo}"> 
-						<label for="Custo">Custo</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<input id="last_name" type="text" class="validate" th:field="*{descricao}"> 
-						<label for="Descrição">Descrição</label>
-					</div>
-				</div>
+
 				<button class="btn waves-effect waves-light" type="submit"
-				name="action">
-				Enviar <i class="material-icons right">send</i>
-			</button>
+					name="action">
+					Enviar <i class="material-icons right">send</i>
+				</button>
 			</form>
-			
+
 		</div>
 	</div>
 

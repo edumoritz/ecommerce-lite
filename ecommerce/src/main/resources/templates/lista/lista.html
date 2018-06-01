@@ -5,23 +5,27 @@
 </head>
 <body>
 	<div class="conteudo" layout:fragment="corpo">
-		<table id="myTable" class="table">
+		<table id="myTable" class="centered responsive-table">
 			<thead>
 				<tr>
-					<th>Qtd:</th>
+					<th>#</th>
 					<th>Nome:</th>
 					<th>Descrição:</th>
-					<th>Valor:</th>
+					<th>Custo:</th>
+					<th>Venda:</th>
 					<th>Operação:</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>QUANTIDADE</td>
-					<td>NOME</td>
-					<td>DESCRICAO</td>					
-					<td>VALOR</td>					
-					<td><a class="waves-effect waves-light btn-small"><i class="large material-icons">edit</i></a>&nbsp
+				<tr th:each="pt : ${produtos}">
+					<td th:text="${pt.id}">1</td>
+					<td th:text="${pt.nome}">NOME</td>
+					<td th:text="${pt.descricao}">DESCRICAO</td>					
+					<td th:text="${pt.custo}">Custo</td>	
+					<td >0.00</td>				
+					<td>
+					<a class="waves-effect waves-light btn-small"><i class="large material-icons">shopping_cart</i></a>&nbsp
+					&nbsp<a class="waves-effect waves-light btn-small"><i class="large material-icons">edit</i></a>&nbsp
 					&nbsp<a class="waves-effect waves-light btn-small"><i class="large material-icons">delete</i></a>
 					</td>
 				</tr>

@@ -16,20 +16,21 @@
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet"
 		href="/materialize/css/materialize.min.css" media="screen,projection" />
-	<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
-		media="screen,projection" />
+	
 	<link href="https://fonts.googleapis.com/css?family=Oswald"
 		rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
+		media="screen,projection" />
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
-	<header  th:replace="fragments/header :: cabecalho">
+	<header th:replace="fragments/header :: cabecalho">
 		<div>header</div>
 	</header>
 	<div>
-		
+
 		<section layout:fragment="corpo">
 			<div>conteudo principal das paginas</div>
 		</section>
@@ -37,7 +38,7 @@
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
 	</footer>
-	
+
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="/materialize/js/my.js"></script>
 	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
