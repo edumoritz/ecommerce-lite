@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "PRODUTOS")
@@ -11,9 +14,11 @@ public class Produto extends AbstractEntity<Long> {
 
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
-	@Column(name = "custo")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#.##0.00")
+	@Column(name = "custo", columnDefinition = "DECIMAL(7,2) default 0.00")
 	private BigDecimal custo;
-	@Column(name = "venda")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#.##0.00")
+	@Column(name = "venda", columnDefinition = "DECIMAL(7,2) default 0.00")
 	private BigDecimal venda;
 	@Column(name = "descricao", length = 200)
 	private String descricao;

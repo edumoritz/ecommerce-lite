@@ -18,8 +18,6 @@ public class Carrinho extends AbstractEntity<Long> {
 	private List<Produto> produto;
 	@Column(name = "quantidade")
 	private Integer quantidade;
-	@Column(name = "valor_produto")
-	private BigDecimal custoCompra;
 	@Column(name = "valor_total")
 	private BigDecimal valorTotal;
 	
@@ -41,12 +39,6 @@ public class Carrinho extends AbstractEntity<Long> {
 	}
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
-	}
-	public BigDecimal getCustoCompra() {
-		return custoCompra;
-	}
-	public void setCustoCompra(BigDecimal custoCompra) {
-		this.custoCompra = custoCompra;
 	}
 	
 	
