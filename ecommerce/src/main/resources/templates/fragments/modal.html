@@ -50,17 +50,29 @@
 			<div class="modal-content">
 				<h4>Deletar Produto</h4>
 				<p>Deseja realmente deletar o produto?</p>
-				<button href="#!" class="btn waves-effect waves-light modal-close"
-					type="submit" name="action">
+				<button href="#!" id="ok_confirm" class="btn waves-effect waves-light modal-close"
+					name="action">
 					Sim <i class="material-icons right">send</i>
 				</button>
 			</div>
 
 			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
+				<a href="#!" id="ok_confirm" class="modal-close waves-effect waves-green btn-flat">Sair</a>
 			</div>
 		</div>
 
 	</div>
+	
+	<script type="text/javascript">
+		var url = '';
+
+		$('button[id*="btn_"]').click(function() {
+			url = "http://localhost:8000/" + $(this).attr('id').split("_")[1];
+		});
+
+		$('#ok_confirm').click(function() {
+			document.location.href = url;
+		});
+	</script>
 </body>
 </html>

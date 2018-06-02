@@ -13,6 +13,7 @@ import com.ecommerce.service.CarrinhoService;
 @RequestMapping("/carrinho")
 public class CarrinhoController {
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private CarrinhoService service;
 	

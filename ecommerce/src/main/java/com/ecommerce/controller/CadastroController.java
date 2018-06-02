@@ -27,7 +27,7 @@ public class CadastroController {
 	}
 
 	@GetMapping("/listar")
-	public String lista(ModelMap model) {
+	public String listar(ModelMap model) {
 		model.addAttribute("produtos", service.buscarTodos());
 		return "/lista/lista";
 	}
@@ -55,6 +55,13 @@ public class CadastroController {
 	public String editar(Produto produto) {
 		service.editar(produto);
 		return "/lista/lista";
+	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+		service.excluir(id);
+		model.addAttribute("success", "Produto excluído com sucesso.");
+		return listar(model);
 	}
 
 }

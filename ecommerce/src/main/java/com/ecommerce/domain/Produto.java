@@ -14,12 +14,13 @@ public class Produto extends AbstractEntity<Long> {
 
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
-	@NumberFormat(style = Style.CURRENCY, pattern = "#.##0.00")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(name = "custo", columnDefinition = "DECIMAL(7,2) default 0.00")
 	private BigDecimal custo;
-	@NumberFormat(style = Style.CURRENCY, pattern = "#.##0.00")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(name = "venda", columnDefinition = "DECIMAL(7,2) default 0.00")
 	private BigDecimal venda;
+	
 	@Column(name = "descricao", length = 200)
 	private String descricao;
 	@ManyToOne
@@ -56,7 +57,6 @@ public class Produto extends AbstractEntity<Long> {
 	public void setCarrinho(Carrinho carrinho) {
 		this.carrinho = carrinho;
 	}
-
 	
 	
 
