@@ -47,7 +47,7 @@ public class CadastroController {
 
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-		model.addAttribute("produtos", service.buscarPorId(id));
+		model.addAttribute("produto", service.buscarPorId(id));
 		return "/cadastro/produto";
 	}
 
