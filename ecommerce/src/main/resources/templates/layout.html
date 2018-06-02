@@ -36,36 +36,12 @@
 		</section>
 	</div>
 	
-	<!-- Modal Structure -->
-	<div id="modalCart" class="modal">
-		<div class="modal-content">
-			<h4>Modal Carrinho</h4>
-			<p>A bunch of text</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-		</div>
-	</div>
-	<div id="modalEdit" class="modal">
-		<div class="modal-content">
-			<h4>Modal Editar</h4>
-			<p>A bunch of text</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-		</div>
+	<div th:replace="fragments/modal :: modal">
+		<div>Modals</div>
 	</div>
 
-	<div id="modalDel" class="modal">
-		<div class="modal-content">
-			<h4>Modal Delete</h4>
-			<p>A bunch of text</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-		</div>
-	</div>
 	
+
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
 	</footer>
@@ -74,6 +50,6 @@
 	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 	<script type="text/javascript" th:src="@{/materialize/js/modal.js}"></script>
-	
+
 </body>
 </html>
