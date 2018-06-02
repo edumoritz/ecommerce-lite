@@ -6,5 +6,8 @@ window.onhashchange = function(e) {
 	const newMenu = document.querySelector(`.menu a[href='/${newURL}']`)
 	oldMenu && oldMenu.classList.remove('selected')
 	newMenu && newMenu.classList.add('selected')
+	
+
 }
+
 
