@@ -9,11 +9,14 @@
 
 		<div class="row">
 			<div th:replace="fragments/alert"></div>
+			
 			<h3>Cadastro de Produto:</h3>
 			<form class="col s12 container"
 				th:action="${produto.id == null} ? @{/cadastros/salvar} : @{/cadastros/editar}" 
 				th:object="${produto}" method="post">
-
+				
+				<div th:replace="fragments/validacao"></div>
+				
 				<div class="row">
 				
 					<div class="col s12">

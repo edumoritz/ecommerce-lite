@@ -3,6 +3,8 @@ package com.ecommerce.domain;
 import java.math.BigDecimal;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
@@ -12,6 +14,8 @@ import org.springframework.format.annotation.NumberFormat.Style;
 @Table(name = "PRODUTOS")
 public class Produto extends AbstractEntity<Long> {
 
+	@NotBlank
+	@Size(min = 3, max = 50, message = "O nome do produto deve ter entre {min} e {max} caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
@@ -20,7 +24,7 @@ public class Produto extends AbstractEntity<Long> {
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(name = "venda", columnDefinition = "DECIMAL(7,2) default 0.00")
 	private BigDecimal venda;
-	
+	@Size(min = 10, max = 200, message = "O nome do produto deve ter entre {min} e {max} caracteres.")
 	@Column(name = "descricao", length = 200)
 	private String descricao;
 	@ManyToOne

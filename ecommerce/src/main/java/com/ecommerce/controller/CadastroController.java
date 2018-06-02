@@ -2,9 +2,12 @@ package com.ecommerce.controller;
 
 import java.math.BigDecimal;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +36,11 @@ public class CadastroController {
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(Produto produto, RedirectAttributes attr) {
+	public String salvar(@Valid Produto produto, BindingResult result, RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/cadastro/produto";
+		}
 		service.salvar(produto);
 		attr.addFlashAttribute("success", "Produto inserido com sucesso.");
 		return "redirect:/cadastros/cadastrar";
@@ -46,7 +53,11 @@ public class CadastroController {
 	}
 
 	@PostMapping("/editar")
-	public String editar(Produto produto, RedirectAttributes attr) {
+	public String editar(@Valid Produto produto, BindingResult result, RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/cadastro/produto";
+		}
 		service.editar(produto);
 		attr.addFlashAttribute("success", "Produto editado com sucesso.");
 		return "redirect:/cadastros/cadastrar";

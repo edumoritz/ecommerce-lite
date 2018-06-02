@@ -43,8 +43,8 @@
 					<td th:text="${pt.id}">1</td>
 					<td th:text="${pt.nome}">NOME</td>
 					<td th:text="${pt.descricao}">DESCRICAO</td>
-					<td th:text="${pt.custo}">CUSTO</td>
-					<td th:text="${pt.venda}">VENDA</td>
+					<td th:text="|R$ ${{pt.custo}}|">CUSTO</td>
+					<td th:text="|R$ ${{pt.venda}}|">VENDA</td>
 					<td><a
 						class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalCart"><i class="large material-icons">shopping_cart</i></a>&nbsp
