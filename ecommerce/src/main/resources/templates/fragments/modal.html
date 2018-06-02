@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layout}">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
 </head>
 <body>
 
 	<!-- Modal Structure -->
 	<div th:fragment="modal">
-	
+
 		<div id="modalCart" class="modal">
 			<div class="modal-content">
 				<h4>Quantidade</h4>
@@ -19,8 +18,8 @@
 							for="quantidade">Quantidade</label>
 					</div>
 				</div>
-				<button href="#!" class="btn waves-effect waves-light modal-close" type="submit"
-					name="action">
+				<button href="#!" class="btn waves-effect waves-light modal-close"
+					type="submit" name="action">
 					Enviar <i class="material-icons right">send</i>
 				</button>
 			</div>
@@ -28,26 +27,32 @@
 				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
 			</div>
 		</div>
+
 		<div id="modalEdit" class="modal">
 			<div class="modal-content">
-				<h4>Modal Editar</h4>
-				<p>A bunch of text</p>
+				<h4>Editar Produto</h4>
+				<p>Em Construção</p>
 			</div>
 			<div class="modal-footer">
 				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
 			</div>
 		</div>
-	
+
 		<div id="modalDel" class="modal">
 			<div class="modal-content">
-				<h4>Modal Delete</h4>
-				<p>A bunch of text</p>
+				<h4>Deletar Produto</h4>
+				<p>Deseja realmente deletar o produto?</p>
+				<button href="#!" class="btn waves-effect waves-light modal-close"
+				type="submit" name="action">
+				Sim <i class="material-icons right">send</i>
+			</button>
 			</div>
+			
 			<div class="modal-footer">
 				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
 			</div>
 		</div>
-	
+
 	</div>
 </body>
 </html>
