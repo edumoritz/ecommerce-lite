@@ -34,12 +34,6 @@ public class CadastroController {
 
 	@PostMapping("/salvar")
 	public String salvar(Produto produto, RedirectAttributes attr) {
-		if(produto.getCusto() == null) {
-			produto.setCusto(new BigDecimal("0.00"));
-			produto.setVenda(new BigDecimal("0.00"));
-		} else if(produto.getVenda() == null) {
-			produto.setVenda(new BigDecimal("0.00"));
-		}
 		service.salvar(produto);
 		attr.addFlashAttribute("success", "Produto inserido com sucesso.");
 		return "redirect:/cadastros/cadastrar";

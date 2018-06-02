@@ -23,12 +23,7 @@
 		<button class="menu-toggle">
 			<i class="large material-icons">add_shopping_cart</i>
 		</button>
-		<div class="carrinho">
-			<i class="large material-icons">add_shopping_cart</i>
-			<div class="carrinho-preco">
-				<span class="preco-de">R$80,00</span> <span class="preco-por">R$50,00</span>
-			</div>
-		</div>
+		<div th:replace="fragments/carrinho"></div>
 	</header>
 	<script type="text/javascript" th:src="@{/materialize/js/my.js}"></script>
 </body>
