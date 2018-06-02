@@ -122,6 +122,12 @@ body {
     width: 100%;
     padding-top: 0px;
 }
+.espaco{
+	padding-right: 10px;
+}
+.espaco button {
+	margin-right: 20px;
+}
 
 /*FOOTER*/
 .layout-footer{
@@ -133,6 +139,7 @@ body {
     color: white;
     text-align: center;
 }
+
 .table{
   margin-bottom: 120px;
 }

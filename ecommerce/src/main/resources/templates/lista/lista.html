@@ -5,6 +5,29 @@
 </head>
 <body>
 	<div class="conteudo" layout:fragment="corpo">
+
+		
+
+			<form class="col s6 container" method="post">
+				
+				<div class="col s1 espaco">
+					<div class="input-field inline espaco">
+						<input id="email_inline" type="text" class="validate"> <label
+							for="despesas">Despesas</label>
+					</div>
+					
+					<div class="input-field inline espaco">
+						<input id="email_inline" type="text" class="validate"> <label
+							for="margem">Margem de lucro</label>
+					</div>
+					<button class="btn-small waves-effect waves-light" type="submit"
+						name="action"><i class="material-icons ">send</i></button>
+				</div>
+				<div class="col s1 espaco">
+					
+				</div>
+			</form>
+
 		<table id="myTable" class="centered responsive-table">
 			<thead>
 				<tr>
@@ -21,22 +44,24 @@
 					<td th:text="${pt.id}">1</td>
 					<td th:text="${pt.nome}">NOME</td>
 					<td th:text="${pt.descricao}">DESCRICAO</td>
-					<td th:text="${pt.custo}">Custo</td>
-					<td>0.00</td>
+					<td th:text="${pt.custo}">CUSTO</td>
+					<td th:text="${pt.venda}">VENDA</td>
 					<td><a
 						class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalCart"><i class="large material-icons">shopping_cart</i></a>&nbsp
-						
+
 						&nbsp<a class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalEdit"><i class="large material-icons">edit</i></a>&nbsp
-						
+
 						&nbsp<a class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalDel"><i class="large material-icons">delete</i></a></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	
 
+
+
+	</form>
 </body>
 </html>

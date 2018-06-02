@@ -18,25 +18,17 @@
 							<input id="email_inline" type="text" class="validate"
 								th:field="*{nome}"> <label for="nome">Nome</label>
 						</div>
-					</div>
-					<div class="col s12">
 						<div class="input-field inline">
-							<input id="email_inline" type="text" class="validate"> <label
-								for="despesas">Despesas</label>
-						</div>
-						<div class="input-field inline">
-							<input id="email_inline" type="text" class="validate"> <label
+							<input id="email_inline" type="text" class="validate"
+								th:field="*{custo}"> <label
 								for="custo">Custo</label>
 						</div>
-
 					</div>
-
 					<div class="input-field col s12">
 						<input id="textarea1" type="text" class="materialize-textarea"
 							th:field="*{descricao}"> <label for="descricao">Descrição</label>
 					</div>
 				</div>
-
 				<button class="btn waves-effect waves-light" type="submit"
 					name="action">
 					Enviar <i class="material-icons right">send</i>

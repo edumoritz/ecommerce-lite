@@ -1,9 +1,12 @@
 package com.ecommerce.controller;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,11 +31,16 @@ public class CadastroController {
 		return "/lista/lista";
 	}
 	
+	@GetMapping("/editar/{id}")
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("produtos", service.buscarPorId(id));
+		return "/lista/lista";		
+	}
 	
-	@PostMapping("/salvar")
-	public String salvar(Produto produto) {
-		service.salvar(produto);
-		return "redirect:/cadastros/cadastrar";
+	@PostMapping("/editar")
+	public String editar(Produto produto) {
+		service.editar(produto);
+		return "/lista/lista";		
 	}
 
 
