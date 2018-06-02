@@ -36,16 +36,6 @@
 			</div>
 		</div>
 
-		<div id="modalEdit" class="modal">
-			<div class="modal-content">
-				<h4>Editar Produto</h4>
-				<p>Em Construção</p>
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-			</div>
-		</div>
-
 		<div id="modalDel" class="modal">
 			<div class="modal-content">
 				<h4>Deletar Produto</h4>
@@ -63,16 +53,5 @@
 
 	</div>
 	
-	<script type="text/javascript">
-		var url = '';
-
-		$('button[id*="btn_"]').click(function() {
-			url = "http://localhost:8000/" + $(this).attr('id').split("_")[1];
-		});
-
-		$('#ok_confirm').click(function() {
-			document.location.href = url;
-		});
-	</script>
 </body>
 </html>

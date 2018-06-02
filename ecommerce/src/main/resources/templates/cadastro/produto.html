@@ -8,7 +8,8 @@
 
 		<div class="row">
 			<h3>Cadastro de Produto:</h3>
-			<form class="col s12 container" th:action="@{/cadastros/salvar}"
+			<form class="col s12 container"
+				th:action="${produto.id == null} ? @{/cadastros/salvar} : @{/cadastros/editar}" 
 				th:object="${produto}" method="post">
 
 				<div class="row">
@@ -29,6 +30,7 @@
 							th:field="*{descricao}"> <label for="descricao">Descrição</label>
 					</div>
 				</div>
+				<input type="hidden" id="id" th:field="*{id}"/>
 				<button class="btn waves-effect waves-light" type="submit"
 					name="action">
 					Enviar <i class="material-icons right">send</i>

@@ -48,13 +48,14 @@ public class CadastroController {
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
 		model.addAttribute("produtos", service.buscarPorId(id));
-		return "/lista/lista";
+		return "/cadastro/produto";
 	}
 
 	@PostMapping("/editar")
-	public String editar(Produto produto) {
+	public String editar(Produto produto, RedirectAttributes attr) {
 		service.editar(produto);
-		return "/lista/lista";
+		attr.addFlashAttribute("success", "Produto editado com sucesso.");
+		return "redirect:/cadastros/cadastrar";
 	}
 	
 	@GetMapping("/excluir/{id}")
