@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -7,7 +9,7 @@
 	<header class="cabecalho" th:fragment="cabecalho">
 		<div class="logo">
 			<a href="/home"> <img
-				src="/materialize/img/spring-boot-logo.png" alt="Logo" />
+				th:src="@{/materialize/img/spring-boot-logo.png}" alt="Logo" />
 			</a>
 		</div>
 		<div class="menu">
@@ -28,5 +30,6 @@
 			</div>
 		</div>
 	</header>
+	<script type="text/javascript" th:src="@{/materialize/js/my.js}"></script>
 </body>
 </html>

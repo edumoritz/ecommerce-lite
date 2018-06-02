@@ -20,17 +20,23 @@
 				<tr th:each="pt : ${produtos}">
 					<td th:text="${pt.id}">1</td>
 					<td th:text="${pt.nome}">NOME</td>
-					<td th:text="${pt.descricao}">DESCRICAO</td>					
-					<td th:text="${pt.custo}">Custo</td>	
-					<td >0.00</td>				
-					<td>
-					<a class="waves-effect waves-light btn-small"><i class="large material-icons">shopping_cart</i></a>&nbsp
-					&nbsp<a class="waves-effect waves-light btn-small"><i class="large material-icons">edit</i></a>&nbsp
-					&nbsp<a class="waves-effect waves-light btn-small"><i class="large material-icons">delete</i></a>
-					</td>
+					<td th:text="${pt.descricao}">DESCRICAO</td>
+					<td th:text="${pt.custo}">Custo</td>
+					<td>0.00</td>
+					<td><a
+						class="waves-effect waves-light btn-small modal-trigger"
+						href="#modalCart"><i class="large material-icons">shopping_cart</i></a>&nbsp
+						
+						&nbsp<a class="waves-effect waves-light btn-small modal-trigger"
+						href="#modalEdit"><i class="large material-icons">edit</i></a>&nbsp
+						
+						&nbsp<a class="waves-effect waves-light btn-small modal-trigger"
+						href="#modalDel"><i class="large material-icons">delete</i></a></td>
 				</tr>
 			</tbody>
 		</table>
+
+
 	</div>
 
 </body>

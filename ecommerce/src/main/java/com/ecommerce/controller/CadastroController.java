@@ -28,6 +28,7 @@ public class CadastroController {
 		return "/lista/lista";
 	}
 	
+	
 	@PostMapping("/salvar")
 	public String salvar(Produto produto) {
 		service.salvar(produto);

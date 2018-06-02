@@ -3,26 +3,26 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-	<title>E-Commerce Lite</title>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		rel="stylesheet" />
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet"
-		href="/materialize/css/materialize.min.css" media="screen,projection" />
-	
-	<link href="https://fonts.googleapis.com/css?family=Oswald"
-		rel="stylesheet" />
-	<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
-		media="screen,projection" />
-	<!--Let browser know website is optimized for mobile-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>E-Commerce Lite</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="/materialize/css/materialize.min.css" media="screen,projection" />
+
+<link href="https://fonts.googleapis.com/css?family=Oswald"
+	rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
+	media="screen,projection" />
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
@@ -35,12 +35,45 @@
 			<div>conteudo principal das paginas</div>
 		</section>
 	</div>
+	
+	<!-- Modal Structure -->
+	<div id="modalCart" class="modal">
+		<div class="modal-content">
+			<h4>Modal Carrinho</h4>
+			<p>A bunch of text</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+		</div>
+	</div>
+	<div id="modalEdit" class="modal">
+		<div class="modal-content">
+			<h4>Modal Editar</h4>
+			<p>A bunch of text</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+		</div>
+	</div>
+
+	<div id="modalDel" class="modal">
+		<div class="modal-content">
+			<h4>Modal Delete</h4>
+			<p>A bunch of text</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+		</div>
+	</div>
+	
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
 	</footer>
 
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="/materialize/js/my.js"></script>
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+	<script type="text/javascript" th:src="@{/materialize/js/modal.js}"></script>
+	
 </body>
 </html>

@@ -7,3 +7,4 @@ window.onhashchange = function(e) {
 	oldMenu && oldMenu.classList.remove('selected')
 	newMenu && newMenu.classList.add('selected')
 }
+
