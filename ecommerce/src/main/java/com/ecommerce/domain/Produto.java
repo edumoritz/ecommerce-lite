@@ -27,6 +27,8 @@ public class Produto extends AbstractEntity<Long> {
 	@Size(min = 10, max = 200, message = "O nome do produto deve ter entre {min} e {max} caracteres.")
 	@Column(name = "descricao", length = 200)
 	private String descricao;
+	@Column(name = "foto")
+	private byte[] foto;
 	@ManyToOne
 	@JoinColumn(name = "id_carrinho_fk")
 	private Carrinho carrinho;
@@ -60,6 +62,12 @@ public class Produto extends AbstractEntity<Long> {
 	}
 	public void setCarrinho(Carrinho carrinho) {
 		this.carrinho = carrinho;
+	}
+	public byte[] getFoto() {
+		return foto;
+	}
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
 	}
 	
 	

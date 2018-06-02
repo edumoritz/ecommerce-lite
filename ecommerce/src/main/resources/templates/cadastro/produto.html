@@ -5,29 +5,39 @@
 </head>
 <body>
 	<div class="cadastro" layout:fragment="corpo">
-	
+
 
 		<div class="row">
 			<div th:replace="fragments/alert"></div>
-			
+
 			<h3>Cadastro de Produto:</h3>
 			<form class="col s12 container"
-				th:action="${produto.id == null} ? @{/cadastros/salvar} : @{/cadastros/editar}" 
+				th:action="${produto.id == null} ? @{/cadastros/salvar} : @{/cadastros/editar}"
 				th:object="${produto}" method="post">
-				
+
 				<div th:replace="fragments/validacao"></div>
-				
+
 				<div class="row">
-				
+
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>Foto</span> <input type="file">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text" th:field="*{foto}"
+								placeholder="Upload one or more files">
+						</div>
+					</div>
+
 					<div class="col s12">
 						<div class="input-field inline">
 							<input id="email_inline" type="text" class="validate"
 								th:field="*{nome}"> <label for="nome">Nome</label>
 						</div>
 						<div class="input-field inline">
-							<input id="email_inline" type="text" class="validate" data-mask="#.##0,00"
-								data-mask-reverse="true" th:field="*{custo}"> <label
-								for="custo">Custo</label>
+							<input id="email_inline" type="text" class="validate"
+								data-mask="#.##0,00" data-mask-reverse="true"
+								th:field="*{custo}"> <label for="custo">Custo</label>
 						</div>
 					</div>
 					<div class="input-field col s12">
@@ -35,7 +45,7 @@
 							th:field="*{descricao}"> <label for="descricao">Descrição</label>
 					</div>
 				</div>
-				<input type="hidden" id="id" th:field="*{id}"/>
+				<input type="hidden" id="id" th:field="*{id}" />
 				<button class="btn waves-effect waves-light" type="submit"
 					name="action">
 					Enviar <i class="material-icons right">send</i>
