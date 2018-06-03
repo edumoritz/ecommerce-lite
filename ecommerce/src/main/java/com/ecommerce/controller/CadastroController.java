@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ecommerce.domain.Despesas;
 import com.ecommerce.domain.Produto;
 import com.ecommerce.service.ProdutoService;
 
@@ -29,12 +30,25 @@ public class CadastroController {
 		return "/cadastro/produto";
 	}
 
-	@GetMapping("/listar")
-	public String listar(ModelMap model) {
-		model.addAttribute("produtos", service.buscarTodos());
-		return "/lista/lista";
-	}
-
+//	@GetMapping("/listar")
+//	public String listar(ModelMap model) {
+//		model.addAttribute("produtos", service.buscarTodos());
+//		return "/lista/lista";
+//	}
+//	
+//	@GetMapping("/excluir/{id}")
+//	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+//		service.excluir(id);
+//		model.addAttribute("success", "Produto excluído com sucesso.");
+//		return listar(model);
+//	}
+//
+//	@GetMapping("/editar/{id}")
+//	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+//		model.addAttribute("produto", service.buscarPorId(id));
+//		return "/cadastro/produto";
+//	}
+	
 	@PostMapping("/salvar")
 	public String salvar(@Valid Produto produto, BindingResult result, RedirectAttributes attr) {
 		
@@ -46,11 +60,6 @@ public class CadastroController {
 		return "redirect:/cadastros/cadastrar";
 	}
 
-	@GetMapping("/editar/{id}")
-	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-		model.addAttribute("produto", service.buscarPorId(id));
-		return "/cadastro/produto";
-	}
 
 	@PostMapping("/editar")
 	public String editar(@Valid Produto produto, BindingResult result, RedirectAttributes attr) {
@@ -63,11 +72,6 @@ public class CadastroController {
 		return "redirect:/cadastros/cadastrar";
 	}
 	
-	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, ModelMap model) {
-		service.excluir(id);
-		model.addAttribute("success", "Produto excluído com sucesso.");
-		return listar(model);
-	}
+	
 
 }

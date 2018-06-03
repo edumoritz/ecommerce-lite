@@ -7,16 +7,21 @@
 	<div class="conteudo" layout:fragment="corpo">
 		<div th:replace="fragments/alert"></div>
 
-		<form class="col s6 container" method="post">
+		<form class="col s6 container" 
+			method="post">
 
 			<div class="col s1 espaco">
 				<div class="input-field inline espaco">
-					<input id="email_inline" type="text" class="validate">
-					<label for="despesas">Despesas</label>
+					<input id="email_inline" type="text" class="validate"
+					data-mask="#.##0,00" data-mask-reverse="true"
+					>
+					<label for="despesa">Despesas</label>
 				</div>
 
 				<div class="input-field inline espaco">
-					<input id="email_inline" type="text" class="validate">
+					<input id="email_inline" type="text" class="validate"
+					data-mask="#.##0,00" data-mask-reverse="true"
+					>
 					<label for="margem">Margem de lucro</label>
 				</div>
 				<button class="btn-small waves-effect waves-light" type="submit"
@@ -51,10 +56,10 @@
 						class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalCart"><i class="large material-icons">shopping_cart</i></a>&nbsp
 
-						&nbsp<a th:href="@{/cadastros/editar/{id} (id=${pt.id}) }"
+						&nbsp<a th:href="@{/despesas/editar/{id} (id=${pt.id}) }"
 						class="waves-effect waves-light btn-small"><i
 							class="large material-icons">edit</i></a>&nbsp &nbsp<a
-						th:id="${ 'btn_cadastros/excluir/' + pt.id }"
+						th:id="${ 'btn_despesas/excluir/' + pt.id }"
 						class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalDel"><i class="large material-icons">delete</i></a></td>
 				</tr>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -14,9 +14,9 @@
 		</div>
 		<div class="menu">
 			<ul>
-				<li><a href="/home">Início</a></li>
-				<li><a href="/cadastros/cadastrar">Cadastro</a></li>
-				<li><a href="/cadastros/listar">Lista</a></li>
+				<li href="#home"><a href="/home">Início</a></li>
+				<li href="#cadastro"><a href="/cadastros/cadastrar">Cadastro</a></li>
+				<li href="#listar"><a href="/despesas/listar">Lista</a></li>
 			</ul>
 		</div>
 
@@ -25,6 +25,5 @@
 		</button>
 		<div th:replace="fragments/carrinho"></div>
 	</header>
-	<script type="text/javascript" th:src="@{/materialize/js/my.js}"></script>
 </body>
 </html>
