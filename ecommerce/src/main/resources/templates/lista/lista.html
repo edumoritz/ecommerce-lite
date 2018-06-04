@@ -2,6 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
 <meta charset="UTF-8" />
+<link href="../static//materialize/css/my.css" th:href="@{/materialize/css/my.css}" rel="stylesheet" />
 </head>
 <body>
 	<div class="conteudo" layout:fragment="corpo">
@@ -18,7 +19,9 @@
 					<th>Descrição:</th>
 					<th>Custo:</th>
 					<th>Venda:</th>
+					<th>Quantidade:</th>
 					<th>Operação:</th>
+					
 				</tr>
 			</thead>
 			<tbody th:each="pt : ${produtos}">
@@ -29,16 +32,21 @@
 					<td th:text="${pt.descricao}">DESCRICAO</td>
 					<td th:text="|R$ ${{pt.custo}}|">CUSTO</td>
 					<td th:text="|R$ ${{pt.venda}}|">VENDA</td>
-					<td><a th:id="${#strings.concat('btn_carrinho/captura/', pt.id)}"
-						class="waves-effect waves-light btn-small modal-trigger"
-						href="#modalCart"><i class="large material-icons">shopping_cart</i></a>&nbsp
-
-						&nbsp<a th:href="@{/cadastros/editar/{id} (id=${pt.id}) }"
+					<td>
+					<form method="post">
+						<input type="text" class="quantidade" style="width:50px;font-size: 13px"  />				
+						<a type="submit" name="action" class="waves-effect waves-light btn-small">
+						<i class="large material-icons" >shopping_cart</i></a>&nbsp
+					</form>
+					<td>&nbsp<a th:href="@{/cadastros/editar/{id} (id=${pt.id}) }"
 						class="waves-effect waves-light btn-small"><i
 							class="large material-icons">edit</i></a>&nbsp &nbsp<a
 							th:href="@{/despesas/excluir/{id} (id=${pt.id}) }"
 						class="waves-effect waves-light btn-small"
 						><i class="large material-icons">delete</i></a></td>
+					
+
+						
 						<!-- th:id="${#strings.concat('btn_cadastros/excluir/', pt.id)}" -->
 						<!-- th:id="${#strings.concat('btn_carrinho/captura/', pt.id)}" -->
 				</tr>

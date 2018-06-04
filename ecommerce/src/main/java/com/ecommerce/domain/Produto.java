@@ -29,9 +29,7 @@ public class Produto extends AbstractEntity<Long> {
 	private String descricao;
 	@Column(name = "foto")
 	private byte[] foto;
-	@ManyToOne
-	@JoinColumn(name = "id_carrinho_fk")
-	private Carrinho carrinho;
+	
 	
 	public String getNome() {
 		return nome;
@@ -56,12 +54,6 @@ public class Produto extends AbstractEntity<Long> {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-	public Carrinho getCarrinho() {
-		return carrinho;
-	}
-	public void setCarrinho(Carrinho carrinho) {
-		this.carrinho = carrinho;
 	}
 	public byte[] getFoto() {
 		return foto;

@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ecommerce.domain.Carrinho;
 import com.ecommerce.domain.Despesas;
 import com.ecommerce.domain.Produto;
-import com.ecommerce.service.CarrinhoService;
 import com.ecommerce.service.ProdutoService;
 
 @Controller
@@ -31,9 +29,6 @@ public class DespesasController {
 
 	@Autowired
 	private ProdutoService service;
-	
-	@Autowired
-	private CarrinhoService cartservice;
 
 	@GetMapping("/listar")
 	public String listar(ModelMap model, Despesas despesa) {
@@ -99,6 +94,7 @@ public class DespesasController {
 		int count = 0;
 		List<ProdutoService> lista = new ArrayList<>();
 		for (long i = 1; i <= service.buscarTodos().size(); i++) {
+			
 			if (!service.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
 				count++;
 			} 

@@ -128,6 +128,9 @@ body {
 .espaco button {
 	margin-right: 20px;
 }
+.quantidade {
+	margin-left: 20px;	
+}
 
 /*FOOTER*/
 .layout-footer{

@@ -1,24 +1,16 @@
 package com.ecommerce.domain;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 @SuppressWarnings("serial")
-@Entity
-@Table(name = "CARRINHO")
-public class Carrinho extends AbstractEntity<Long> {
+@Component
+public class Carrinho {
 
-	@OneToMany(mappedBy = "carrinho")
-	private List<Produto> produto;
-	@Column(name = "quantidade")
+	private Produto produto;
 	private Integer quantidade;
-	@Column(name = "valor_total")
-	private BigDecimal valorTotal;
+	private Double total;
 	
 	
 	public Integer getQuantidade() {
@@ -27,17 +19,16 @@ public class Carrinho extends AbstractEntity<Long> {
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
-	public BigDecimal getValorTotal() {
-		return valorTotal;
+	public Double getTotal() {
+		return total;
 	}
-	public void setValorTotal(BigDecimal valorTotal) {
-		
-		this.valorTotal = valorTotal;
+	public void setTotal(Double total) {
+		this.total = total;
 	}
-	public List<Produto> getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
-	public void setProduto(List<Produto> produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 	

@@ -7,46 +7,79 @@
 
 	<!-- Modal Structure -->
 	<div th:fragment="modal">
+	
+	<!--  
 
 		<div id="modalCart" class="modal">
 			<div class="modal-content">
 				<h4>Quantidade</h4>
 				<p>Adicione a quantidade de itens desejados:</p>
 
-				<!-- <form class="col s6" th:action="@{/carrinho/salvar}" 
-					th:object="${produto}" method="post"> -->
+				<form class="col s6"
+					th:action="@{/carrinho/salvar}"
+					th:object="${produto}" method="post">
 
-					<div class="col s1">
-						<div class="input-field inline">
-							<input id="email_inline" type="text" class="validate"
-								><label
-								for="quantidade">Quantidade</label>
-						</div>
-					</div>
-					<button id="ok_confirm" class="btn waves-effect waves-light modal-close"
-						 name="action">
-						Enviar <i class="material-icons right">send</i>
-					</button>
-				<!-- </form>   -->
+					<table id="myTable" class="centered responsive-table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Foto:</th>
+								<th>Nome:</th>
+								<th>Descrição:</th>
+								<th>Custo:</th>
+								<th>Venda:</th>
+								<th>Quantidade:</th>
+							</tr>
+						</thead>
+						<tbody th:each="pt : ${produtos}">
+							<tr th:if="${ pt.custo } &gt; 1">
+								<td th:text="${pt.id}">1</td>
+								<td><img th:src="${pt.foto}" width="50" height="50"></img></td>
+								<td th:text="${pt.nome}">NOME</td>
+								<td th:text="${pt.descricao}">DESCRICAO</td>
+								<td th:text="|R$ ${{pt.custo}}|">CUSTO</td>
+								<td th:text="|R$ ${{pt.venda}}|">VENDA</td>
+								<td>
+									<div class="col s1">
+										<div class="input-field inline">
+											<input id="email_inline" type="text" class="validate"><label
+												for="quantidade">Quantidade</label>
+										</div>
+									</div>
+									<button
+										class="btn waves-effect waves-light modal-close" name="action">
+										Enviar <i class="material-icons right">send</i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+
+
+
+				</form>
 
 			</div>
 			<div class="modal-footer">
 				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
 			</div>
-		</div>
+		</div>-->
 
 		<div id="modalDel" class="modal">
 			<div class="modal-content">
 				<h4>Deletar Produto</h4>
 				<p>Deseja realmente deletar o produto?</p>
-				<button href="#!" id="ok_confirm" class="btn waves-effect waves-light modal-close"
-					name="action">
+				<button href="#!" id="ok_confirm"
+					class="btn waves-effect waves-light modal-close" name="action">
 					Sim <i class="material-icons right">send</i>
 				</button>
 			</div>
 
 			<div class="modal-footer">
-				<a href="#!" id="ok_confirm" class="modal-close waves-effect waves-green btn-flat">Sair</a>
+				<a href="#!" id="ok_confirm"
+					class="modal-close waves-effect waves-green btn-flat">Sair</a>
 			</div>
 		</div>
 
