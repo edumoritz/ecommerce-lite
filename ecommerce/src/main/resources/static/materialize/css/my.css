@@ -139,6 +139,9 @@ body {
     color: white;
     text-align: center;
 }
+#margem_inline {
+	display: none;
+}
 
 .table{
   margin-bottom: 120px;

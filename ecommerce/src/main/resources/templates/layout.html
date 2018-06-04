@@ -11,15 +11,15 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+<link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
 	rel="stylesheet" />
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet"
-	href="/materialize/css/materialize.min.css" media="screen,projection" />
+	th:href="@{/materialize/css/materialize.min.css}" media="screen,projection" />
 
-<link href="https://fonts.googleapis.com/css?family=Oswald"
+<link th:href="@{https://fonts.googleapis.com/css?family=Oswald}"
 	rel="stylesheet" />
-<link type="text/css" rel="stylesheet" href="/materialize/css/my.css"
+<link type="text/css" rel="stylesheet" th:href="@{/materialize/css/my.css}"
 	media="screen,projection" />
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,9 +40,9 @@
 		<div>footer</div>
 	</footer>
 
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/jquery-mask-plugin/dist/jquery.mask.min.js}"></script>
+	<script type="text/javascript" th:src="@{/materialize/js/materialize.min.js}"></script>
 	<script type="text/javascript" th:src="@{/materialize/js/modal.js}"></script>
 	<script type="text/javascript" th:src="@{/materialize/js/my.js}"></script>
 </body>

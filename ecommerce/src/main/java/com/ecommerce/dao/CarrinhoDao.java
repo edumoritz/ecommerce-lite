@@ -3,6 +3,7 @@ package com.ecommerce.dao;
 import java.util.List;
 
 import com.ecommerce.domain.Carrinho;
+import com.ecommerce.domain.Produto;
 
 public interface CarrinhoDao {
 

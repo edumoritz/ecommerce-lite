@@ -30,24 +30,24 @@ public class CadastroController {
 		return "/cadastro/produto";
 	}
 
-//	@GetMapping("/listar")
-//	public String listar(ModelMap model) {
-//		model.addAttribute("produtos", service.buscarTodos());
-//		return "/lista/lista";
-//	}
-//	
-//	@GetMapping("/excluir/{id}")
-//	public String excluir(@PathVariable("id") Long id, ModelMap model) {
-//		service.excluir(id);
-//		model.addAttribute("success", "Produto excluído com sucesso.");
-//		return listar(model);
-//	}
-//
-//	@GetMapping("/editar/{id}")
-//	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-//		model.addAttribute("produto", service.buscarPorId(id));
-//		return "/cadastro/produto";
-//	}
+	@GetMapping("/listar")
+	public String listar(ModelMap model) {
+		model.addAttribute("produtos", service.buscarTodos());
+		return "/lista/lista";
+	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+		service.excluir(id);
+		attr.addFlashAttribute("success", "Produto excluído com sucesso.");
+		return "redirect:/lista/lista";
+	}
+
+	@GetMapping("/editar/{id}")
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("produto", service.buscarPorId(id));
+		return "/cadastro/produto";
+	}
 	
 	@PostMapping("/salvar")
 	public String salvar(@Valid Produto produto, BindingResult result, RedirectAttributes attr) {

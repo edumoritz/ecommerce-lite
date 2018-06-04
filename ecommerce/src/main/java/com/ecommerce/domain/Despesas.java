@@ -2,15 +2,9 @@ package com.ecommerce.domain;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-import org.springframework.format.annotation.NumberFormat;
-import org.springframework.format.annotation.NumberFormat.Style;
-
-
-public class Despesas {
+public class Despesas extends AbstractEntity<Long> {
+	
 	
 	private BigDecimal despesa;
 	private BigDecimal margem;

@@ -6,31 +6,8 @@
 <body>
 	<div class="conteudo" layout:fragment="corpo">
 		<div th:replace="fragments/alert"></div>
-		
-		<form class="col s6 container" 
-			th:action="@{/despesas/calcula}"
-			th:object="${despesas}"
-			method="post">
 
-			<div class="col s1 espaco">
-				<div class="input-field inline espaco">
-					<input id="email_inline" type="text" class="validate"
-					th:field="*{despesa}">
-					<label for="despesa">Despesas</label>
-				</div>
-
-				<div class="input-field inline espaco">
-					<input id="email_inline" type="text" class="validate"
-					th:field="*{margem}">
-					<label for="margem">Margem de lucro</label>
-				</div>
-				<button class="btn-small waves-effect waves-light" type="submit"
-					name="action">
-					<i class="material-icons ">send</i>
-				</button>
-			</div>
-			<div class="col s1 espaco"></div>
-		</form>
+		<div th:replace="fragments/despesas"></div>
 
 		<table id="myTable" class="centered responsive-table">
 			<thead>
@@ -45,30 +22,30 @@
 				</tr>
 			</thead>
 			<tbody th:each="pt : ${produtos}">
-				<tr th:if="${ pt.custo } &gt; 1" >
+				<tr th:if="${ pt.custo } &gt; 1">
 					<td th:text="${pt.id}">1</td>
 					<td><img th:src="${pt.foto}" width="50" height="50"></img></td>
 					<td th:text="${pt.nome}">NOME</td>
 					<td th:text="${pt.descricao}">DESCRICAO</td>
-					<td th:text="|R$ ${{pt.custo}}|" >CUSTO</td>
+					<td th:text="|R$ ${{pt.custo}}|">CUSTO</td>
 					<td th:text="|R$ ${{pt.venda}}|">VENDA</td>
-					<td><a
+					<td><a th:id="${#strings.concat('btn_carrinho/captura/', pt.id)}"
 						class="waves-effect waves-light btn-small modal-trigger"
 						href="#modalCart"><i class="large material-icons">shopping_cart</i></a>&nbsp
 
-						&nbsp<a th:href="@{/despesas/editar/{id} (id=${pt.id}) }"
+						&nbsp<a th:href="@{/cadastros/editar/{id} (id=${pt.id}) }"
 						class="waves-effect waves-light btn-small"><i
 							class="large material-icons">edit</i></a>&nbsp &nbsp<a
-						th:id="${ 'btn_despesas/excluir/' + pt.id }"
-						class="waves-effect waves-light btn-small modal-trigger"
-						href="#modalDel"><i class="large material-icons">delete</i></a></td>
+							th:href="@{/despesas/excluir/{id} (id=${pt.id}) }"
+						class="waves-effect waves-light btn-small"
+						><i class="large material-icons">delete</i></a></td>
+						<!-- th:id="${#strings.concat('btn_cadastros/excluir/', pt.id)}" -->
+						<!-- th:id="${#strings.concat('btn_carrinho/captura/', pt.id)}" -->
 				</tr>
 			</tbody>
 		</table>
 		<div th:replace="fragments/modal :: modal"></div>
 	</div>
-
-	</form>
 	
 </body>
 </html>
