@@ -40,13 +40,13 @@
 					</form>
 					<td>&nbsp<a th:href="@{/cadastros/editar/{id} (id=${pt.id}) }"
 						class="waves-effect waves-light btn-small"><i
-							class="large material-icons">edit</i></a>&nbsp &nbsp<a
-							th:href="@{/despesas/excluir/{id} (id=${pt.id}) }"
-						class="waves-effect waves-light btn-small"
-						><i class="large material-icons">delete</i></a></td>
+							class="large material-icons ">edit</i></a>&nbsp &nbsp<a
+							th:id="${ 'btn_cadastros/excluir/' + pt.id }"
+						class="waves-effect waves-light btn-small  modal-trigger "
+						href="#modalDel"><i class="large material-icons">delete</i></a></td>
 					
-
-						
+						<!-- th:id="${ 'btn_cadastros/excluir/' + pt.id }"-->
+						<!-- th:href="@{/despesas/excluir/{id} (id=${pt.id}) }"-->
 						<!-- th:id="${#strings.concat('btn_cadastros/excluir/', pt.id)}" -->
 						<!-- th:id="${#strings.concat('btn_carrinho/captura/', pt.id)}" -->
 				</tr>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$('a[id*="btn_"]').click(function() {
 		url = "http://localhost:8000/" + $(this).attr('id').split("_")[1];
 	});
-
+	console.log(url)
 	$('#ok_confirm').click(function() {
 		document.location.href = url;
 	});
