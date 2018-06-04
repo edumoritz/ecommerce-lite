@@ -25,7 +25,7 @@ public class CarrinhoController {
 	@GetMapping("/listar")
 	public String cadastrar(Carrinho carrinho) {
 		//model.addAttribute("carrinho", produtoservice.buscarTodos());
-		return "/lista/lista";
+		return "redirect:/despesas/listar";
 	}
 	
 	@GetMapping("/captura/{id}")
@@ -40,12 +40,9 @@ public class CarrinhoController {
 		//service.salvar(produto);
 		System.out.println(cart.getQuantidade());
 		//attr.addFlashAttribute("success", "Produto inserido no carrinho com sucesso.");
-		return "/lista/lista";
+		return "redirect:/despesas/listar";
 	}
 	
-//	@ModelAttribute("produtos")
-//	public List<Carrinho> getProdutos(){
-//		return cartservice.buscarTodos();
-//	}
+
 
 }

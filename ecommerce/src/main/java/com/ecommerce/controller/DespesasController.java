@@ -19,7 +19,7 @@ import com.ecommerce.domain.Produto;
 import com.ecommerce.service.ProdutoService;
 
 @Controller
-@RequestMapping("/despesas")
+@RequestMapping("/produtos")
 public class DespesasController {
 	Despesas despesa = new Despesas();
 	Produto produto = new Produto();
@@ -85,7 +85,7 @@ public class DespesasController {
 			}
 		}
 		
-		return "redirect:/despesas/listar";
+		return "redirect:/produtos/listar";
 	}
 	
 	

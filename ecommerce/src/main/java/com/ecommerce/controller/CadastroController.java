@@ -40,7 +40,7 @@ public class CadastroController {
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 		service.excluir(id);
 		attr.addFlashAttribute("success", "Produto excluído com sucesso.");
-		return "redirect:/despesas/listar";
+		return "redirect:/produtos/listar";
 	}
 
 	@GetMapping("/editar/{id}")
