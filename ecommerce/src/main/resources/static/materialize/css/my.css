@@ -15,7 +15,6 @@ body {
 	height: 50px;
 	width: 100px;
 }
-
 .menu ul {
 	list-style: none;
 	margin: 0;
@@ -107,81 +106,88 @@ body {
 	display: none;
 }
 /*CONTEUDO*/
-.conteudo {	
+.conteudo {
 	padding-top: 20px;
-	margin-left: 20px;	
+	margin-left: 20px;
 }
+
 .cadastro {
 	margin-left: 30px;
 	padding-top: 0;
 }
+
 .conteudo button {
 	float: inherit;
 }
+
 .layout-content {
-    width: 100%;
-    padding-top: 0px;
+	width: 100%;
+	padding-top: 0px;
 }
-.espaco{
+
+.espaco {
 	padding-right: 10px;
 }
+
 .espaco button {
 	margin-right: 20px;
 }
+
 .quantidade {
-	margin-left: 20px;	
+	margin-left: 20px;
 }
 
 /*FOOTER*/
-.layout-footer{
+.layout-footer {
 	position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #777;
-    color: white;
-    text-align: center;
-}
-#margem_inline {
-	display: none;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #777;
+	color: white;
+	text-align: center;
 }
 
-.table{
-  margin-bottom: 120px;
+.table {
+	margin-bottom: 120px;
 }
 
 /**
 ALERTS
 **/
 .alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-    margin: 0 auto;
-    margin-top: 10px;
-  	width: 50%;
-    opacity: 1;
-    transition: opacity 0.6s;
-    margin-bottom: 15px;
+	padding: 20px;
+	background-color: #f44336;
+	color: white;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 50%;
+	opacity: 1;
+	transition: opacity 0.6s;
+	margin-bottom: 15px;
 }
 
-.alert.success {background-color: #4CAF50;}
+.alert.success {
+	background-color: #4CAF50;
+}
 
 .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
 }
+
 .alert, strong {
 	text-align: center;
 }
+
 .closebtn:hover {
-    color: black;
+	color: black;
 }
 /**
 Media Query
