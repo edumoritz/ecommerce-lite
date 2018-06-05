@@ -12,27 +12,74 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ecommerce.domain.Carrinho;
 import com.ecommerce.domain.Despesas;
 import com.ecommerce.domain.Produto;
+import com.ecommerce.service.CarrinhoService;
 import com.ecommerce.service.ProdutoService;
 
 @Controller
 @RequestMapping("/produtos")
-public class DespesasController {
+public class ListarController {
 	Despesas despesa = new Despesas();
 	Produto produto = new Produto();
-	Carrinho cart = new Carrinho();
 	BigDecimal rateio = new BigDecimal("0.00");
 	BigDecimal result;
-
+	BigDecimal valor;
+	BigDecimal multiply;
+	String quantidade;
+	
 	@Autowired
-	private ProdutoService service;
-
+	private ProdutoService produtoService;
+	
+	@Autowired
+	private CarrinhoService carrinhoService;
+	
+	
+	/**
+	 * 
+	 * 
+	 * CARRINHO
+	 * 
+	 * **/
+	
+	@PostMapping("/captura/{id}")
+	public String preCaptura(@PathVariable("id") Long id, 
+							ModelMap model, 
+							Carrinho carrinho, 
+							RedirectAttributes attr, Despesas despesa) {
+		System.out.println("ID DO PRODUTO: "+id);
+		quantidade = carrinho.getQuantidade().toString();
+		valor = produtoService.buscarPorId(id).getVenda().setScale(2, RoundingMode.HALF_EVEN);
+		multiply = valor.multiply(new BigDecimal(quantidade));
+		
+		carrinho.setQuantidade(Integer.parseInt(quantidade));
+		carrinho.setTotal(multiply);
+		return salvando(carrinho, despesa, model);
+	}
+	
+	public String salvando(Carrinho carrinho, Despesas despesa, ModelMap model) {
+		System.out.println(carrinho.getQuantidade());
+		System.out.println(carrinho.getTotal());
+		System.out.println(carrinhoService.buscarTodos());
+		carrinhoService.editar(carrinho);
+		return listar(model, despesa, carrinho);
+	}
+	
+	
+	/**
+	 * 
+	 * 
+	 * LISTAR
+	 * 
+	 * **/
+	
 	@GetMapping("/listar")
-	public String listar(ModelMap model, Despesas despesa) {
-		model.addAttribute("produtos", service.buscarTodos());
+	public String listar(ModelMap model, Despesas despesa, Carrinho carrinho) {
+		model.addAttribute("produtos", produtoService.buscarTodos());
+		//model.addAttribute("carrinho", cartService.buscarTodos());
 		return "/lista/lista";
 	}
 	
@@ -43,15 +90,15 @@ public class DespesasController {
 	 * 
 	 * **/
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, ModelMap model, Despesas despesas) {
-		service.excluir(id);
+	public String excluir(@PathVariable("id") Long id, ModelMap model, Despesas despesas, Carrinho carrinho) {
+		produtoService.excluir(id);
 		model.addAttribute("success", "Produto excluído com sucesso.");
-		return listar(model, despesa);
+		return listar(model, despesa, carrinho);
 	}
 
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-		model.addAttribute("produto", service.buscarPorId(id));
+		model.addAttribute("produto", produtoService.buscarPorId(id));
 		return "/cadastro/produto";
 	}
 
@@ -93,9 +140,9 @@ public class DespesasController {
 	private void calculaA(Despesas despesa) {
 		int count = 0;
 		List<ProdutoService> lista = new ArrayList<>();
-		for (long i = 1; i <= service.buscarTodos().size(); i++) {
+		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
 			
-			if (!service.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
+			if (!produtoService.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
 				count++;
 			} 
 		}
@@ -109,11 +156,11 @@ public class DespesasController {
 		System.out.println("Rateio convertido: "+ rateio);
 		
 	
-		for (long i = 1; i <= service.buscarTodos().size(); i++) {
-			if (!service.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
-				result = service.buscarPorId(i).getCusto().add(rateio).multiply((despesa.getMargem().add(new BigDecimal("1"))));
-				service.buscarPorId(i).setVenda(result);
-				service.editar(service.buscarPorId(i));
+		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
+			if (!produtoService.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
+				result = produtoService.buscarPorId(i).getCusto().add(rateio).multiply((despesa.getMargem().add(new BigDecimal("1"))));
+				produtoService.buscarPorId(i).setVenda(result);
+				produtoService.editar(produtoService.buscarPorId(i));
 			} 
 		}
 	}

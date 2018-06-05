@@ -21,7 +21,6 @@
 					<th>Venda:</th>
 					<th>Quantidade:</th>
 					<th>Operação:</th>
-					
 				</tr>
 			</thead>
 			<tbody th:each="pt : ${produtos}">
@@ -33,10 +32,12 @@
 					<td th:text="|R$ ${{pt.custo}}|">CUSTO</td>
 					<td th:text="|R$ ${{pt.venda}}|">VENDA</td>
 					<td>
-					<form  method="post">
-						<input type="text" class="quantidade" style="width:50px;font-size: 13px"  />				
-						<a type="submit" name="action" class="waves-effect waves-light btn-small">
-						<i class="large material-icons" >shopping_cart</i></a>&nbsp
+					<form th:action="@{/produtos/captura/{id} (id=${pt.id}) }" th:object="${carrinho}" method="post">
+						<input type="text" class="quantidade" style="width:50px;font-size: 13px" th:field="*{quantidade}" />				
+						
+						<button class="btn waves-effect waves-light" type="submit"
+						name="action"><i class="large material-icons" >shopping_cart</i></a>&nbsp
+				</button>
 					</form>
 					<td>&nbsp<a th:href="@{/cadastros/editar/{id} (id=${pt.id}) }"
 						class="waves-effect waves-light btn-small"><i
@@ -44,11 +45,6 @@
 							th:id="${ 'btn_cadastros/excluir/' + pt.id }"
 						class="waves-effect waves-light btn-small  modal-trigger "
 						href="#modalDel"><i class="large material-icons">delete</i></a></td>
-					
-						<!-- th:id="${ 'btn_cadastros/excluir/' + pt.id }"-->
-						<!-- th:href="@{/despesas/excluir/{id} (id=${pt.id}) }"-->
-						<!-- th:id="${#strings.concat('btn_cadastros/excluir/', pt.id)}" -->
-						<!-- th:id="${#strings.concat('btn_carrinho/captura/', pt.id)}" -->
 				</tr>
 			</tbody>
 		</table>

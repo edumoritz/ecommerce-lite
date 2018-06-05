@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ecommerce.domain.Carrinho;
 import com.ecommerce.domain.Despesas;
 import com.ecommerce.domain.Produto;
 import com.ecommerce.service.ProdutoService;
@@ -26,7 +27,7 @@ public class CadastroController {
 	private ProdutoService service;
 
 	@GetMapping("/cadastrar")
-	public String cadastrar(Produto produto) {
+	public String cadastrar(Carrinho carrinho, Produto produto) {
 		return "/cadastro/produto";
 	}
 

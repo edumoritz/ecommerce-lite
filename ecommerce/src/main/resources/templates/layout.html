@@ -29,17 +29,18 @@
 	<header th:replace="fragments/header :: cabecalho">
 		<div>header</div>
 	</header>
+	
 	<div>
 
 		<section layout:fragment="corpo">
 			<div>conteudo principal das paginas</div>
 		</section>
 	</div>
-
+	
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
 	</footer>
-
+	
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/jquery-mask-plugin/dist/jquery.mask.min.js}"></script>
 	<script type="text/javascript" th:src="@{/materialize/js/materialize.min.js}"></script>
