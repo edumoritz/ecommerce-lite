@@ -67,8 +67,6 @@ public class ListarController {
 		carrinhoService.editar(carrinho);
 		return listar(model, despesa, carrinho);
 	}
-	
-	
 	/**
 	 * 
 	 * 
@@ -101,7 +99,6 @@ public class ListarController {
 		model.addAttribute("produto", produtoService.buscarPorId(id));
 		return "/cadastro/produto";
 	}
-
 	
 	/**
 	 * 
@@ -139,22 +136,15 @@ public class ListarController {
 
 	private void calculaA(Despesas despesa) {
 		int count = 0;
-		List<ProdutoService> lista = new ArrayList<>();
 		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
 			
 			if (!produtoService.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
 				count++;
 			} 
 		}
-		//BigDecimal convertDespesa = new BigDecimal(despesa.getDespesa());
-		System.out.println("Count: "+ count+" Despesa: "+despesa.getDespesa());
 		
-		//BigDecimal divisao = convertDespesa.divide(new BigDecimal(count));
-		rateio = despesa.getDespesa().setScale(0, RoundingMode.HALF_EVEN);
-		
-		rateio = rateio.divide(new BigDecimal(count)).setScale(0, RoundingMode.HALF_EVEN);
-		System.out.println("Rateio convertido: "+ rateio);
-		
+		rateio = despesa.getDespesa();
+		rateio = rateio.divide(new BigDecimal(count), BigDecimal.ROUND_HALF_EVEN);
 	
 		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
 			if (!produtoService.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
