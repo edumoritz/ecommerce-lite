@@ -136,6 +136,9 @@ body {
 .quantidade {
 	margin-left: 20px;
 }
+#margem_inline {
+	display: none;
+}
 
 /*FOOTER*/
 .layout-footer {
