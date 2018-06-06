@@ -30,36 +30,32 @@ public class ListarController {
 	BigDecimal valor;
 	BigDecimal multiply;
 	String quantidade;
-	
+
 	@Autowired
 	private ProdutoService produtoService;
-	
+
 	@Autowired
 	private CarrinhoService carrinhoService;
-	
-	
+
 	/**
 	 * 
 	 * 
 	 * CARRINHO
 	 * 
-	 * **/
-	
+	 **/
+
 	@PostMapping("/captura/{id}")
-	public String preCaptura(@PathVariable("id") Long id, 
-							ModelMap model, 
-							Carrinho carrinho, 
-							RedirectAttributes attr, Despesas despesa) {
-		System.out.println("ID DO PRODUTO: "+id);
+	public String preCaptura(@PathVariable("id") Long id, ModelMap model, Carrinho carrinho, RedirectAttributes attr,
+			Despesas despesa) {
+
 		quantidade = carrinho.getQuantidade().toString();
 		valor = produtoService.buscarPorId(id).getVenda().setScale(2, RoundingMode.HALF_EVEN);
 		multiply = valor.multiply(new BigDecimal(quantidade));
-		
-		carrinho.setQuantidade(Integer.parseInt(quantidade));
-		carrinho.setTotal(multiply);
+		carrinho.setResult(multiply, quantidade);
+
 		return salvando(carrinho, despesa, model);
 	}
-	
+
 	public String salvando(Carrinho carrinho, Despesas despesa, ModelMap model) {
 		System.out.println(carrinho.getQuantidade());
 		System.out.println(carrinho.getTotal());
@@ -67,26 +63,26 @@ public class ListarController {
 		carrinhoService.editar(carrinho);
 		return listar(model, despesa, carrinho);
 	}
+
 	/**
 	 * 
 	 * 
 	 * LISTAR
 	 * 
-	 * **/
-	
+	 **/
+
 	@GetMapping("/listar")
 	public String listar(ModelMap model, Despesas despesa, Carrinho carrinho) {
 		model.addAttribute("produtos", produtoService.buscarTodos());
-		//model.addAttribute("carrinho", cartService.buscarTodos());
 		return "/lista/lista";
 	}
-	
+
 	/**
 	 * 
 	 * 
 	 * PRODUTO
 	 * 
-	 * **/
+	 **/
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model, Despesas despesas, Carrinho carrinho) {
 		produtoService.excluir(id);
@@ -99,61 +95,69 @@ public class ListarController {
 		model.addAttribute("produto", produtoService.buscarPorId(id));
 		return "/cadastro/produto";
 	}
-	
+
 	/**
 	 * 
 	 * 
 	 * DESPESA
 	 * 
-	 * **/
+	 **/
 	@PostMapping("/calcula")
 	public String calcula(ModelMap model, Despesas despesa) {
 		BigDecimal m = new BigDecimal("0.10");
 		BigDecimal d = new BigDecimal("400.00");
-		if(despesa.getDespesa() == null) {
-			if(despesa.getMargem() == null) {
+		if (despesa.getDespesa() == null) {
+			if (despesa.getMargem() == null) {
 				despesa.setDespesa(d);
 				despesa.setMargem(m);
 				calculaA(despesa);
 			} else {
+				despesa.setDespesa(d);
 				calculaA(despesa);
 			}
 		} else {
-			if(despesa.getMargem() == null) {
-				d = despesa.getDespesa();
+			if (despesa.getMargem() == null) {
 				despesa.setMargem(m);
 				calculaA(despesa);
 			} else {
-				m = despesa.getMargem();
 				calculaA(despesa);
 			}
 		}
-		
+
 		return "redirect:/produtos/listar";
 	}
-	
-	
 
 	private void calculaA(Despesas despesa) {
-		int count = 0;
-		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
-			
-			if (!produtoService.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
-				count++;
-			} 
-		}
+		int countCusto = 0;
+		int recebeId = 0;
 		
-		rateio = despesa.getDespesa();
-		rateio = rateio.divide(new BigDecimal(count), BigDecimal.ROUND_HALF_EVEN);
-	
 		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
-			if (!produtoService.buscarPorId(i).getCusto().equals(new BigDecimal("0.00"))) {
-				result = produtoService.buscarPorId(i).getCusto().add(rateio).multiply((despesa.getMargem().add(new BigDecimal("1"))));
-				produtoService.buscarPorId(i).setVenda(result);
-				produtoService.editar(produtoService.buscarPorId(i));
-			} 
+			recebeId = Integer.parseInt(onlyNumbers(produtoService.buscarTodos().get((int) i-1).toString()));
+			if (!produtoService.buscarPorId((long) recebeId).getCusto().equals(new BigDecimal("0.00"))) {
+				countCusto++;
+			}
+		}
+
+		rateio = despesa.getDespesa();
+		rateio = rateio.divide(new BigDecimal(countCusto), BigDecimal.ROUND_HALF_EVEN);
+
+		for (long i = 1; i <= produtoService.buscarTodos().size(); i++) {
+			recebeId = Integer.parseInt(onlyNumbers(produtoService.buscarTodos().get((int) i-1).toString()));
+			if (!produtoService.buscarPorId((long) recebeId).getCusto().equals(new BigDecimal("0.00"))) {
+				result = produtoService.buscarPorId((long) recebeId).getCusto().add(rateio)
+						.multiply((despesa.getMargem().add(new BigDecimal("1"))));
+				produtoService.buscarPorId((long) recebeId).setVenda(result);
+				produtoService.editar(produtoService.buscarPorId((long) recebeId));
+			}
 		}
 	}
-	
+
+	public static String onlyNumbers(String str) {
+		if (str != null) {
+			return str.replaceAll("[^0123456789]", "");
+		} else {
+			return "";
+		}
+	}
 
 }

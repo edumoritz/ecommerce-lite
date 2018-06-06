@@ -32,7 +32,8 @@
 					<td th:text="|R$ ${{pt.venda}}|">VENDA</td>
 					<td>
 					<form th:action="@{/produtos/captura/{id} (id=${pt.id}) }" th:object="${carrinho}" method="post">
-						<input type="text" class="quantidade" style="width:50px;font-size: 13px" th:field="*{quantidade}" />				
+						<input type="text" class="quantidade" style="width:50px;font-size: 13px" 
+						th:field="*{quantidade}" />				
 						
 						<button class="btn waves-effect waves-light" type="submit"
 						name="action"><i class="large material-icons" >shopping_cart</i></a>&nbsp

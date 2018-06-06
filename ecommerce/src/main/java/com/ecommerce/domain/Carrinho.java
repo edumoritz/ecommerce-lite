@@ -19,7 +19,6 @@ public class Carrinho extends AbstractEntity<Long> {
 	@Column(name = "total")
 	private BigDecimal total;
 	
-	
 	public Integer getQuantidade() {
 		return quantidade;
 	}
@@ -33,4 +32,11 @@ public class Carrinho extends AbstractEntity<Long> {
 		this.total = total;
 	
 	}
+	
+	public void setResult(BigDecimal valor, String qtd) {
+		this.quantidade = Integer.parseInt(qtd);
+		this.total = valor;	
+	}
+	
+	
 }
