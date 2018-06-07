@@ -2,11 +2,15 @@
 <li>Eclipse Oxigen</li>
 <h1>Banco de dados:</h1>
 <li>https://www.postgresql.org/</li>
+<h1>Executar aplicação:</h1>
+<li>Criar database com nome de "ecommerce" no postgres</li>
+<li>Informar usuario e senha do banco no application.properties</li>
+<li>Executar aplicação no caminho: http://localhost:8000/home</li>
 <h1>Documentação:</h1>
 <li>https://materializecss.com/</li>
 <li>https://www.thymeleaf.org/</li>
 <li>https://spring.io/guides</li>
-https://www.w3schools.com/
+<li>https://www.w3schools.com/</li>
 <li>https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html</li>
 <h1>Referencias:</h1>
 <li>http://blog.algaworks.com/validacao-spring-mvc/</li>
