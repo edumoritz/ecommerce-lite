@@ -38,5 +38,4 @@ public class Carrinho extends AbstractEntity<Long> {
 		this.total = valor;	
 	}
 	
-	
 }

@@ -1,5 +1,7 @@
 package com.ecommerce.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,13 @@ import com.ecommerce.domain.Carrinho;
 
 @Service @Transactional(readOnly = false)
 public class CarrinhoServiceImpl implements CarrinhoService{
+	
+	BigDecimal valor;
+	BigDecimal multiply;
+	String quantidade;
+	
+	@Autowired
+	private ProdutoService produtoService;
 	
 	@Autowired
 	private CarrinhoDao dao;
@@ -38,6 +47,13 @@ public class CarrinhoServiceImpl implements CarrinhoService{
 	@Override @Transactional(readOnly = true)
 	public List<Carrinho> buscarTodos() {
 		return dao.findAll();
+	}
+	
+	public void calculos(Long id, Carrinho carrinho) {
+		quantidade = carrinho.getQuantidade().toString();
+		valor = produtoService.buscarPorId(id).getVenda().setScale(2, RoundingMode.HALF_EVEN);
+		multiply = valor.multiply(new BigDecimal(quantidade));
+		carrinho.setResult(multiply, quantidade);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.ecommerce.service;
 
 import java.util.List;
 
+import com.ecommerce.domain.Despesas;
 import com.ecommerce.domain.Produto;
 
 public interface ProdutoService {
@@ -15,4 +16,6 @@ public interface ProdutoService {
 	Produto buscarPorId(Long id);
 	
 	List<Produto> buscarTodos();
+	
+	void calculaService(Despesas despesa);
 }

@@ -16,4 +16,6 @@ public interface CarrinhoService {
 
 	List<Carrinho> buscarTodos();
 
+	void calculos(Long id, Carrinho carrinho);
+
 }
