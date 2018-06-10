@@ -1,7 +1,5 @@
 package com.ecommerce.controller;
 
-import java.math.BigDecimal;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ecommerce.domain.Carrinho;
-import com.ecommerce.domain.Despesas;
 import com.ecommerce.domain.Produto;
 import com.ecommerce.service.ProdutoService;
 

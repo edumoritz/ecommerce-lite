@@ -23,21 +23,18 @@ public class ProdutoServiceImpl implements ProdutoService {
 	public void salvar(Produto produto) {
 		if(produto.getCusto() == null) {
 			produto.setCusto(new BigDecimal("0.00"));
-			produto.setVenda(new BigDecimal("0.00"));
 		} else if(produto.getVenda() == null) {
 			produto.setVenda(new BigDecimal("0.00"));
-		}
+		} 
 		dao.save(produto);		
 	}
 
 	public void editar(Produto produto) {
 		if(produto.getCusto() == null) {
 			produto.setCusto(new BigDecimal("0.00"));
-			produto.setVenda(new BigDecimal("0.00"));
 		} else if(produto.getVenda() == null) {
 			produto.setVenda(new BigDecimal("0.00"));
-		}
-		
+		} 
 		dao.update(produto);		
 	}
 

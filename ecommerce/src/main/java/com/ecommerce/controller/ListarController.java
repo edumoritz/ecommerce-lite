@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ecommerce.domain.Carrinho;
 import com.ecommerce.domain.Despesas;
-import com.ecommerce.domain.Produto;
 import com.ecommerce.service.CarrinhoService;
 import com.ecommerce.service.ProdutoService;
 
