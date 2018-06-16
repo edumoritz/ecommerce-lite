@@ -1,20 +1,17 @@
 package com.ecommerce.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.ecommerce.domain.Carrinho;
 
 public interface CarrinhoService {
 
-	void salvar(Carrinho carrinho);
+	void addProduto(BigDecimal p);
 
-	void editar(Carrinho carrinho);
+	void deleteProduto(BigDecimal p);
 
-	void excluir(Long id);
-
-	Carrinho buscarPorId(Long id);
-
-	List<Carrinho> buscarTodos();
+	List<BigDecimal> getProduto ();
 
 	void calculos(Long id, Carrinho carrinho);
 

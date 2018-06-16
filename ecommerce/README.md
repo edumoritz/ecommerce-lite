@@ -18,3 +18,6 @@
 <li>https://www.w3schools.com/howto/howto_js_alert.asp</li>
 <li>http://www.guj.com.br/t/problema-com-bigdecimal/37740/5</li>
 <li>http://www.jbkr.com.br/geral/dicas/utilidades-java-metodo-para-retornar-apenas-numeros/</li>
+
+<h1>Conclusão:</h1>
+<p>Quando combinados, o Spring e o Thymeleaf,  são capazes de reduzir a complexidade de tópicos inerentes à configuração, acesso a dados e criação de páginas web, possibilitando o desenvolvimento produtivo e focado no negócio.</p>

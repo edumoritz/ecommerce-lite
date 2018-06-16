@@ -2,58 +2,54 @@ package com.ecommerce.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ecommerce.dao.CarrinhoDao;
 import com.ecommerce.domain.Carrinho;
 
 @Service @Transactional(readOnly = false)
-public class CarrinhoServiceImpl implements CarrinhoService{
-	
-	BigDecimal valor;
+public class CarrinhoServiceImpl implements CarrinhoService {
+
+	BigDecimal valorVenda;
 	BigDecimal multiply;
+	BigDecimal sum = new BigDecimal("0.00");
 	String quantidade;
 	
-	@Autowired
-	private ProdutoService produtoService;
+	List<BigDecimal> list = new ArrayList<BigDecimal>();
+
+	@Autowired ProdutoService produtoService;
+
 	
-	@Autowired
-	private CarrinhoDao dao;
-
-	@Override
-	public void salvar(Carrinho carrinho) {
-		dao.save(carrinho);
-	}
-
-	@Override
-	public void editar(Carrinho carrinho) {
-		dao.update(carrinho);
-	}
-
-	@Override
-	public void excluir(Long id) {
-		dao.delete(id);
-	}
-
-	@Override @Transactional(readOnly = true)
-	public Carrinho buscarPorId(Long id) {
-		return dao.findById(id);
-	}
-
-	@Override @Transactional(readOnly = true)
-	public List<Carrinho> buscarTodos() {
-		return dao.findAll();
-	}
+	public void addProduto(BigDecimal p){
+		list.add(p);
+    }
 	
+	public void deleteProduto(BigDecimal p){
+		list.clear();
+    }
+
+    public List<BigDecimal> getProduto () {
+        return list;
+    }
+
+
 	public void calculos(Long id, Carrinho carrinho) {
+		
 		quantidade = carrinho.getQuantidade().toString();
-		valor = produtoService.buscarPorId(id).getVenda().setScale(2, RoundingMode.HALF_EVEN);
-		multiply = valor.multiply(new BigDecimal(quantidade));
-		carrinho.setResult(multiply, quantidade);
+		valorVenda = produtoService.buscarPorId(id).getVenda().setScale(2, RoundingMode.HALF_EVEN);
+		multiply = valorVenda.multiply(new BigDecimal(quantidade));
+		addProduto(multiply);
+		
+		
+		for (BigDecimal k: list) 
+			sum = sum.add(k);
+		
+		carrinho.setResult(quantidade, multiply, sum);
+		sum = new BigDecimal("0.00");
 	}
 
 }

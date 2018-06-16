@@ -1,6 +1,7 @@
 package com.ecommerce.service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,9 +93,14 @@ public class ProdutoServiceImpl implements ProdutoService {
 			recebeId = Integer.parseInt(onlyNumbers(buscarTodos().get((int) i-1).toString()));
 			if (!buscarPorId((long) recebeId).getCusto().equals(new BigDecimal("0.00"))) {
 				result = buscarPorId((long) recebeId).getCusto().add(rateio)
-						.multiply((despesa.getMargem().add(new BigDecimal("1"))));
-				buscarPorId((long) recebeId).setVenda(result);
-				editar(buscarPorId((long) recebeId));
+						.multiply((despesa.getMargem().add(new BigDecimal("1"))))
+						.setScale(2, RoundingMode.HALF_EVEN);;
+				
+				dao.findById((long) recebeId).setVenda(result);
+				
+//				System.out.println(buscarPorId((long) recebeId));
+				System.out.println(recebeId);
+				dao.update(buscarPorId((long) recebeId));
 			}
 		}
 	}

@@ -31,10 +31,10 @@ public class ListarController {
 	 * 
 	 **/
 	@PostMapping("/captura/{id}")
-	public String preCaptura(@PathVariable("id") Long id, ModelMap model, Carrinho carrinho, RedirectAttributes attr,
+	public String preCaptura(@PathVariable("id") Long id, ModelMap model, 
+			Carrinho carrinho, RedirectAttributes attr,
 			Despesas despesa) {
 		carrinhoService.calculos(id, carrinho);
-		carrinhoService.editar(carrinho);
 		return listar(model, despesa, carrinho);
 	}
 

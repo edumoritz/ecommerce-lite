@@ -1,19 +1,14 @@
 package com.ecommerce.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 @SuppressWarnings("serial")
-@Entity
-@Table(name = "CARRINHO")
-public class Carrinho extends AbstractEntity<Long> {
+public class Carrinho implements Serializable {
 
-	@Column(name = "quantidade")
+	
 	private Integer quantidade;
-	@Column(name = "total")
+	private BigDecimal valor;
 	private BigDecimal total;
 	
 	public Integer getQuantidade() {
@@ -22,17 +17,25 @@ public class Carrinho extends AbstractEntity<Long> {
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
+	
+	public BigDecimal getValor() {
+		return valor;
+	}
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
 	public BigDecimal getTotal() {
 		return total;
 	}
 	public void setTotal(BigDecimal total) {
 		this.total = total;
-	
 	}
 	
-	public void setResult(BigDecimal valor, String qtd) {
+	public void setResult(String qtd, BigDecimal vl, BigDecimal sum) {
 		this.quantidade = Integer.parseInt(qtd);
-		this.total = valor;	
+		this.valor = vl;	
+		this.total = sum;
 	}
+	
 	
 }
