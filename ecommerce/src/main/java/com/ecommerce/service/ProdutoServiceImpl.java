@@ -53,6 +53,12 @@ public class ProdutoServiceImpl implements ProdutoService {
 		return dao.findAll();
 	}
 	
+	@Transactional(readOnly = true)
+	public List<Produto> orderById() {
+		return dao.orderById();
+	}
+
+	
 	public void calculaService(Despesas despesa) {
 		BigDecimal m = new BigDecimal("0.10");
 		BigDecimal d = new BigDecimal("400.00");
@@ -80,7 +86,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 		int recebeId = 0;
 		
 		for (long i = 1; i <= buscarTodos().size(); i++) {
-			recebeId = Integer.parseInt(onlyNumbers(buscarTodos().get((int) i-1).toString()));
+			recebeId = Integer.parseInt(onlyNumbers(orderById().get((int) i-1).toString()));
 			if (!buscarPorId((long) recebeId).getCusto().equals(new BigDecimal("0.00"))) {
 				countCusto++;
 			}
@@ -90,7 +96,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 		rateio = rateio.divide(new BigDecimal(countCusto), BigDecimal.ROUND_HALF_EVEN);
 
 		for (long i = 1; i <= buscarTodos().size(); i++) {
-			recebeId = Integer.parseInt(onlyNumbers(buscarTodos().get((int) i-1).toString()));
+			recebeId = Integer.parseInt(onlyNumbers(orderById().get((int) i-1).toString()));
 			if (!buscarPorId((long) recebeId).getCusto().equals(new BigDecimal("0.00"))) {
 				result = buscarPorId((long) recebeId).getCusto().add(rateio)
 						.multiply((despesa.getMargem().add(new BigDecimal("1"))))
@@ -98,8 +104,6 @@ public class ProdutoServiceImpl implements ProdutoService {
 				
 				dao.findById((long) recebeId).setVenda(result);
 				
-//				System.out.println(buscarPorId((long) recebeId));
-				System.out.println(recebeId);
 				dao.update(buscarPorId((long) recebeId));
 			}
 		}

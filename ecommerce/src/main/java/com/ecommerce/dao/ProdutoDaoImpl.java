@@ -6,5 +6,5 @@ import com.ecommerce.domain.Produto;
 
 @Repository
 public class ProdutoDaoImpl extends AbstractDao<Produto, Long> implements ProdutoDao{
-
+	
 }

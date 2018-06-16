@@ -18,4 +18,6 @@ public interface ProdutoService {
 	List<Produto> buscarTodos();
 	
 	void calculaService(Despesas despesa);
+
+	List<Produto> orderById();
 }
