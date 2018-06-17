@@ -110,12 +110,6 @@ body {
 	padding-top: 20px;
 	margin-left: 20px;
 }
-/*
-.myTable {
-	display: grid;
-	grid-template-columns: 5px 20px 20px 50px 20px 20px 20px 1fr;
-}*/
-
 .cadastro {
 	margin-left: 30px;
 	padding-top: 0;
@@ -147,6 +141,7 @@ body {
 
 /*FOOTER*/
 .layout-footer {
+	z-index: 10;
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -154,10 +149,6 @@ body {
 	background-color: #777;
 	color: white;
 	text-align: center;
-}
-
-.table {
-	margin-bottom: 120px;
 }
 
 /**

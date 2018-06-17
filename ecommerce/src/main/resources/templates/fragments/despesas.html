@@ -3,13 +3,13 @@
 
 	<div class="col s1 espaco">
 		<div class="input-field inline espaco">
-			<input id="email_inline" type="text" class="validate"
+			<input id="email_inline" type="text" class="validate" data-mask="#.##0,00" data-mask-reverse="true"
 				th:field="*{despesa}"> <label for="despesa">Despesas</label>
 		</div>
 
 		<div class="input-field inline espaco">
-			<input id="margem_inline" type="text" class="validate"
-				th:field="*{margem}"> <label id="margem_inline" for="margem">Margem de
+			<input type="text" class="validate" data-mask="#.##0,00" data-mask-reverse="true"
+				th:field="*{margem}"> <label for="margem">Margem de
 				lucro</label>
 		</div>
 		<button class="btn-small waves-effect waves-light" type="submit"

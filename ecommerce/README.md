@@ -12,6 +12,9 @@
 <li>https://spring.io/guides</li>
 <li>https://www.w3schools.com/</li>
 <li>https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html</li>
+<li>https://docs.jboss.org/hibernate/orm/3.3/reference/pt-BR/html/queryhql.html</li>
+<h1>Conclusão:</h1>
+<p>Quando combinados, o Spring e o Thymeleaf,  são capazes de reduzir a complexidade de tópicos inerentes à configuração, acesso a dados e criação de páginas web, possibilitando o desenvolvimento produtivo e focado no negócio.</p>
 <h1>Referencias:</h1>
 <li>http://blog.algaworks.com/validacao-spring-mvc/</li>
 <li>http://www.guj.com.br/t/resolvido-setar-valor-default-hibernate-annotations/286014/3</li>
@@ -19,5 +22,4 @@
 <li>http://www.guj.com.br/t/problema-com-bigdecimal/37740/5</li>
 <li>http://www.jbkr.com.br/geral/dicas/utilidades-java-metodo-para-retornar-apenas-numeros/</li>
 
-<h1>Conclusão:</h1>
-<p>Quando combinados, o Spring e o Thymeleaf,  são capazes de reduzir a complexidade de tópicos inerentes à configuração, acesso a dados e criação de páginas web, possibilitando o desenvolvimento produtivo e focado no negócio.</p>
+
