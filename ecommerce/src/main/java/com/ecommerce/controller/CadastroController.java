@@ -2,6 +2,7 @@ package com.ecommerce.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -31,7 +32,7 @@ import com.ecommerce.service.ProdutoService;
 public class CadastroController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CadastroController.class);
-	
+
 	private Path path;
 
 	@Autowired
@@ -49,7 +50,21 @@ public class CadastroController {
 	}
 
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr, HttpServletRequest request) {
+
+		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+
+		path = Paths.get("C:/Users/eduar/git/projetoecommerce/ecommerce/src/main/resources/static/materialize/img/" + id
+				+ ".png");
+
+		if (Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 		service.excluir(id);
 		attr.addFlashAttribute("success", "Produto excluído com sucesso.");
 		return "redirect:/produtos/listar";
@@ -72,26 +87,21 @@ public class CadastroController {
 		service.salvar(produto);
 
 		MultipartFile prodFoto = produto.getFoto();
-		
-		System.out.println(prodFoto);
 
-		// get root directory to store the image
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		
+
 		path = Paths.get("C:/Users/eduar/git/projetoecommerce/ecommerce/src/main/resources/static/materialize/img/"
 				+ produto.getId() + ".png");
 
 		if (prodFoto != null && !prodFoto.isEmpty()) {
 			try {
-				// convert the image type to png
 				prodFoto.transferTo(new File(path.toString()));
 			} catch (IllegalStateException | IOException e) {
-				// oops! something did not work as expected
 				e.printStackTrace();
-				throw new RuntimeException("Saving User image was not successful", e);
+				throw new RuntimeException("Saving Product image was not successful", e);
 			}
 		}
-		
+
 		attr.addFlashAttribute("success", "Produto inserido com sucesso.");
 		return "redirect:/cadastros/cadastrar";
 
