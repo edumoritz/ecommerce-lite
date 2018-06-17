@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
+import org.springframework.web.multipart.MultipartFile;
 
 @SuppressWarnings("serial")
 @Entity
@@ -27,9 +28,9 @@ public class Produto extends AbstractEntity<Long> {
 	@Size(min = 10, max = 200, message = "O nome do produto deve ter entre {min} e {max} caracteres.")
 	@Column(name = "descricao", length = 200)
 	private String descricao;
-	@Column(name = "foto")
-	private byte[] foto;
 	
+	@Transient
+	private MultipartFile foto;
 	
 	public String getNome() {
 		return nome;
@@ -55,10 +56,10 @@ public class Produto extends AbstractEntity<Long> {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public byte[] getFoto() {
+	public MultipartFile getFoto() {
 		return foto;
 	}
-	public void setFoto(byte[] foto) {
+	public void setFoto(MultipartFile foto) {
 		this.foto = foto;
 	}
 	

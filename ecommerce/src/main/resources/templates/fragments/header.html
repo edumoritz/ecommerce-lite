@@ -15,9 +15,9 @@
 		</div>
 		<div class="menu">
 			<ul>
-				<li href="#home"><a th:href="@{/home}">Início</a></li>
-				<li href="#cadastro"><a th:href="@{/cadastros/cadastrar}">Cadastro</a></li>
-				<li href="#listar"><a th:href="@{/produtos/listar}">Lista</a></li>
+				<li><a id="#home" th:href="@{/home}">Início</a></li>
+				<li><a id="#cadastro" th:href="@{/cadastros/cadastrar}">Cadastro</a></li>
+				<li><a id="#listar" th:href="@{/produtos/listar}">Lista</a></li>
 			</ul>
 		</div>
 
@@ -26,5 +26,16 @@
 		</button>
 		<div th:replace="fragments/carrinho"></div>
 	</header>
+	<script type="text/javascript">
+	window.onhashchange = function(e) {
+		const oldURL = e.oldURL.split('#')[1]
+		const newURL = e.newURL.split('#')[1]
+		console.log(oldURL, newURL)
+		const oldMenu = document.querySelector(`.menu a[id='#${oldURL}']`)
+		const newMenu = document.querySelector(`.menu a[id='#${newURL}']`)
+		oldMenu && oldMenu.classList.remove('selected')
+		newMenu && newMenu.classList.add('selected')
+	}
+	</script>
 </body>
 </html>
