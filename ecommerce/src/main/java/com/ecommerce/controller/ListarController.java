@@ -47,6 +47,7 @@ public class ListarController {
 	 **/
 	@GetMapping("/listar")
 	public String listar(ModelMap model, Despesas despesa, Carrinho carrinho) {
+		carrinho.setQuantidade(1);
 		model.addAttribute("produtos", produtoService.orderById());
 		return "/lista/lista";
 	}
