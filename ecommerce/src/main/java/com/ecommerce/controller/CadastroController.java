@@ -54,7 +54,7 @@ public class CadastroController {
 
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 
-		path = Paths.get("C:/Users/eduar/git/projetoecommerce/ecommerce/src/main/resources/static/materialize/img/" + id
+		path = Paths.get("C:/Users/eduar/git/projetoecommerce/ecommerce/src/main/resources/static/img/" + id
 				+ ".png");
 
 		if (Files.exists(path)) {
@@ -90,7 +90,7 @@ public class CadastroController {
 
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 
-		path = Paths.get("C:/Users/eduar/git/projetoecommerce/ecommerce/src/main/resources/static/materialize/img/"
+		path = Paths.get("C:/Users/eduar/git/projetoecommerce/ecommerce/src/main/resources/static/img/"
 				+ produto.getId() + ".png");
 
 		if (prodFoto != null && !prodFoto.isEmpty()) {

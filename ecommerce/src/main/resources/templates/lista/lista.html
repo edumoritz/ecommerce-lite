@@ -25,7 +25,7 @@
 			<tbody th:each="pt : ${produtos}">
 				<tr th:if="${ pt.custo } &gt; 1">
 					<td th:text="${pt.id}">1</td>
-					<td><img th:src="@{/materialize/img/{id}.png (id=${pt.id})}" width="50" height="50"></img></td>
+					<td><img th:src="@{/img/{id}.png (id=${pt.id})}" width="50" height="50"></img></td>
 					<td th:text="${pt.nome}">NOME</td>
 					<td th:text="${pt.descricao}">DESCRICAO</td>
 					<td th:text="|R$ ${{pt.custo}}|">CUSTO</td>

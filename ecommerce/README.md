@@ -22,5 +22,6 @@
 <li>http://www.guj.com.br/t/problema-com-bigdecimal/37740/5</li>
 <li>http://www.jbkr.com.br/geral/dicas/utilidades-java-metodo-para-retornar-apenas-numeros/</li>
 <li>https://github.com/mrmodise/java-spring-file-upload</li>
+<li>https://github.com/spring-projects/spring-boot/issues/34</li>
 
 
