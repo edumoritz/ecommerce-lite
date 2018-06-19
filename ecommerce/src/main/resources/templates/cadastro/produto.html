@@ -16,7 +16,7 @@
 				th:action="${produto.id == null} ? @{/cadastros/salvar} : @{/cadastros/editar}"
 				th:object="${produto}" method="post" enctype="multipart/form-data">
 
-				<div th:replace="fragments/validacao"></div>
+				<div th:replace="fragments/validacao :: validacao"></div>
 
 				<div class="row">
 
@@ -25,25 +25,24 @@
 							<span>Foto</span> <input type="file" name="file">
 						</div>
 						<div class="file-path-wrapper">
-							<input class="file-path validate" type="text" name="prodFoto" path="prodFoto"
-								placeholder="Upload one or more files" accept=".jpg,.jpeg,.png">
+							<input class="file-path validate" type="text" name="prodFoto" path="prodFoto" />
 						</div>
 					</div>
 
 					<div class="col s12">
 						<div class="input-field inline">
 							<input id="email_inline" type="text" class="validate"
-								th:field="*{nome}"> <label for="nome">Nome</label>
+								th:field="*{nome}" /> <label for="nome">Nome</label>
 						</div>
 						<div class="input-field inline">
 							<input id="email_inline" type="text" class="validate"
 								data-mask="#.##0,00" data-mask-reverse="true"
-								th:field="*{custo}"> <label for="custo">Custo</label>
+								th:field="*{custo}" /> <label for="custo">Custo</label>
 						</div>
 					</div>
 					<div class="input-field col s12">
 						<input id="textarea1" type="text" class="materialize-textarea"
-							th:field="*{descricao}"> <label for="descricao">Descrição</label>
+							th:field="*{descricao}" /><label for="descricao">Descrição</label>
 					</div>
 				</div>
 				<input type="hidden" id="id" th:field="*{id}" />

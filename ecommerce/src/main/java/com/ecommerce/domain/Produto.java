@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "PRODUTOS")
 public class Produto extends AbstractEntity<Long> {
 
-	@NotBlank
+	@NotBlank(message = "Informe um nome.")
 	@Size(min = 3, max = 50, message = "O nome do produto deve ter entre {min} e {max} caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
@@ -25,7 +25,7 @@ public class Produto extends AbstractEntity<Long> {
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(name = "venda", columnDefinition = "DECIMAL(7,2) default 0.00")
 	private BigDecimal venda;
-	@Size(min = 10, max = 200, message = "O nome do produto deve ter entre {min} e {max} caracteres.")
+	@Size(min = 10, max = 200, message = "A descrição do produto deve ter entre {min} e {max} caracteres.")
 	@Column(name = "descricao", length = 200)
 	private String descricao;
 	

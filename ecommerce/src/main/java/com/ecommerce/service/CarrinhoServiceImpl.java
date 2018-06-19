@@ -54,7 +54,6 @@ public class CarrinhoServiceImpl implements CarrinhoService {
 			sum = sum.add(k);
 		
 		carrinho.setResult(quantidade, multiply, sum);
-		carrinho.setQuantidade(null);
 		sum = new BigDecimal("0.00");
 	}
 

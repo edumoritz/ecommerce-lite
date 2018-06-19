@@ -77,7 +77,7 @@ public class CadastroController {
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(@Valid Produto produto, @RequestParam("file") MultipartFile file, BindingResult result,
+	public String salvar(@Valid Produto produto, BindingResult result, @RequestParam("file") MultipartFile file,
 			RedirectAttributes attr, HttpServletRequest request) {
 
 		if (result.hasErrors()) {
